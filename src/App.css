@@ -1,38 +1,243 @@
 .App {
   text-align: center;
+  /* min-height: 100vh; */
+  /* background-color: gray; */
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.flex{
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+.flex-between{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.flex-column{
+  display: flex;
+  flex-direction: column;
+}
+.flex-row{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--form-gap);
+}
+.flex-row .div{
+  width: 50%;
+}
+.flex-row .div .btn-primary{
+  width: 100%;
+}
+.link{
+  cursor: pointer;
+}
+.input-wrapper{
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  position: relative;
+}
+.input-wrapper .small{
+  height: 2.4rem !important;
+  font-size: 0.8rem;
+}
+.input-wrapper .input-placeholder.small{
+  top: 20%;
+}
+.input-wrapper .input-field:focus ~ .input-placeholder.small,
+.input-wrapper .input-field:valid ~ .input-placeholder.small{
+  transform: translateY(-3px);
+  font-size: 0.7rem;
+  color: var(--input-color-primary);
+}
+.input-wrapper .input-field{
+  height: var(--form-utils-height);
+  border-radius: var(--form-utils-radius);
+  border: 1px solid rgba(128, 128, 128, 0.532);
+  font-size: var(--form-utils-font-size);
+  padding-left: 0.6rem;
+  -webkit-transition: 0.5s;
+  color: #282828;
+  letter-spacing: 0.5px;
+  padding-top: 0.6rem;
+  transition: 0.5s;
+  outline: 0px solid transparent;
+  box-sizing: border-box;
+}
+.input-wrapper .input-field:focus{
+  border: 1px solid var(--input-color-primary);
+  outline: 0px solid var(--input-color-primary);
+      /* outline: none; */
+}
+.input-wrapper .input-field:focus ~ .input-placeholder,
+.input-wrapper .input-field:valid ~ .input-placeholder{
+  transform: translateY(-12px);
+  font-size: 0.7rem;
+  color: var(--input-color-primary);
+}
+.input-wrapper > .input-placeholder{
+  position: absolute;
+  top: 35%;
+  left: 0.6rem;
+  font-size: 0.9rem;
+  color: gray;
+  pointer-events: none;
+  transition: all 0.2s ease;
+}
+.input-wrapper.error .input-field{
+  border: 1px solid red;
+  color: red;
+}
+.input-wrapper.error .input-field:focus{
+  border: 1px solid red;
+}
+.input-wrapper.error .input-field:focus ~ .input-placeholder,
+.input-wrapper.error .input-field:valid ~ .input-placeholder{
+  color: red;
+}
+.input-wrapper.error > .input-placeholder{
+  color: red;
+}
+.select-wraper{
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  position: relative;
+  border-radius: var(--form-utils-radius);
+  border: 1px solid rgba(128, 128, 128, 0.532);
+  /* background-color: rgba(255, 88, 88, 0.389); */
+  position: relative;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  height: var(--form-utils-height);
+}
+.select-wraper .select{
+  font-size: var(--form-utils-font-size);
+  padding-left: 0.6rem;
+  color: #282828;
+  text-transform: capitalize;
+  letter-spacing: 0.5px;
+  padding-top: 0.6rem;
+  /* outline: 0px solid transparent; */
+  box-sizing: border-box;
+  position: absolute;
+  top: 0.6rem;
+}
+
+.select-wraper:focus{
+  border: 1px solid var(--input-color-primary);
+  outline: 0px solid var(--input-color-primary);
+  /* outline: none; */
+}
+.select-wraper .select-label.selected{
+  transform: translateY(-12px);
+  font-size: 0.7rem;
+  color: var(--input-color-primary);
+}
+.select-wraper .select-label {
+  position: absolute;
+  top: 35%;
+  left: 0.6rem;
+  font-size: 0.9rem;
+  color: gray;
+  pointer-events: none;
+  transition: all 0.2s ease;
+}
+.select-wraper .options {
+  position: absolute;
+  top: calc(2px + var(--form-utils-height));
+  z-index: 100;
+  width: 100%;
+  text-align: left;
+  padding: 0.6rem 0;
+  max-height: 17rem;
+  overflow-y: auto;
+  background-color: white;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  display: none;
+  border-radius: 3px 3px 10px 10px;
+}
+.select-wraper .options.selected {
+  display: block;
+  /* transition: 0.5s ease; */
+}
+.select-wraper .options .select-ul{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  /* gap: 0.2rem; */
+}
+.select-wraper .options .select-ul .option{
+  color: rgba(20,20,20,0.8);
+  /* padding: 0.8rem 0; */
+  user-select: none;
+  padding: 0.6rem;
+}
+.select-wraper .options .select-ul .option.highlighted{
+  background-image: var(--primary-color);
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.select-wraper .options .select-ul .option:hover{
+  background-image: var(--primary-color);
+  color: white;
+  transition: 0.5s;
+  cursor: pointer;
+}
+.select-wraper .options .select-ul .option.placeholder{
+  /* background-color: rgba(229, 229, 229, 0.321); */
+  color: rgb(171, 170, 170);
+}
+.select-wraper .options .select-ul .option.placeholder:hover{
+  background-image: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+/* CSS */
+.btn-primary {
+  background-image: var(--primary-color);
+  border-radius: 8px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  flex-shrink: 0;
+  font-family: "Inter UI","SF Pro Display",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  height: 3rem;
+  padding: 0 1.6rem;
+  text-align: center;
+  text-shadow: rgba(0, 0, 0, 0.25) 0 3px 8px;
+  transition: all .5s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+.btn-primary:hover {
+  box-shadow: rgba(80, 63, 205, 0.5) 0 1px 30px;
+  transition-duration: .4s;
+}
+
+.btn-primary.edit{
+  background-image: linear-gradient(to right, #f6d365 0%, #fda085 51%, #f6d365 100%);
+}
+.btn-primary.danger{
+  background-image: linear-gradient(to right, #fc1818 0%, #fd2a2a 51%, #fd5a5a 100%);
+}
+.btn-primary.danger:hover{
+  box-shadow: rgba(205, 63, 63, 0.5) 0 1px 30px;
+}
+#icon-primary{
+  font-size: 1.5rem;
+  color: rgba(39, 21, 175, 0.886);
+  cursor: pointer;
+}
+.error-text{
+  color: red;
+  font-size: 0.9rem;
+}
+@media (min-width: 768px) {
+  .btn-primary {
+    padding: 0 2.6rem;
   }
 }
