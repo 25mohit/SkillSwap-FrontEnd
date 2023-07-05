@@ -3,7 +3,9 @@ import { all, fork, put, take, takeEvery } from 'redux-saga/effects';
 import * as Actions from '../types';
 import { NotificationHandler, SaveAPIResponse, SaveAllPaginateSkills, SaveAllSkills, SaveNotifications, SaveProfile, SavePublicProfile, SaveSingleSkill } from '../Actions/Actions';
 
-const API = process.env.REACT_APP_ENDPOINT
+const PROJECT_MODE = "production"
+
+const API = PROJECT_MODE === "production" ? "https://skillswap-api.onrender.com" : process.env.REACT_APP_ENDPOINT ;
 
 const config = () => {
     let TOKEN = localStorage.getItem("token");
