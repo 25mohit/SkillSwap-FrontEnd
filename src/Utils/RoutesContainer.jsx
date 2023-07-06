@@ -45,7 +45,7 @@ const RoutesContainer = () => {
           <Route path="skills/:actionMode" exact element={<AddSkill />} />
           </Route>
           <Route path="/skill/detail/:skillUUID" exact element={<SkillDetail />} />
-          <Route path=":userProfile" exact element={<PublicProfileV2 />} />
+          <Route path="/user/:userProfile" exact element={<PublicProfileV2 />} />
       </Routes>
     </Suspense>
   )
