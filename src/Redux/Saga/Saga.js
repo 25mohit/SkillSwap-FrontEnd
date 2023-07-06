@@ -75,7 +75,7 @@ function* fetchSingleSkill(skillUUID){
     if(singleSkill){
         console.log("singleSkill", singleSkill);
         if(singleSkill?.status){
-            yield put(SaveSingleSkill(singleSkill?.skill))
+            yield put(SaveSingleSkill(singleSkill))
         }
     }
 }
@@ -117,7 +117,7 @@ function* updateSkillReq(skillData){
 }
 
 function* getUserPublicProfileFetch(publicProfile){
-    console.log("publicProfile", publicProfile);
+    // console.log("publicProfile", publicProfile);
     const publicProfileRes = yield axios.post(`${API}/user/public-profile/${publicProfile.payload}`,{},  config())
     .then((res) => {
         const response = res.data

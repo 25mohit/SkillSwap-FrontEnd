@@ -7,8 +7,9 @@ import { GetPublicProfile } from '../../../Redux/Actions/Actions'
 import AuthWraper from '../../../Utils/Component/AuthWraper'
 import Main from '../../Layouts/Main/Main'
 
-const PublicProfile = () => {
+const PublicProfileV2 = () => {
    
+    // alert("Hit")
     const {userProfile} = useParams()
     const dispatch = useDispatch()
     
@@ -18,8 +19,9 @@ const PublicProfile = () => {
 
     const profileData = useSelector(state => state.home.publicProfileData)
 
+
   return (
-    // <AuthWraper>
+    <AuthWraper>
         <Main>
             <div className="public-profile-container" >
                 <div className="body">
@@ -72,8 +74,8 @@ const PublicProfile = () => {
                 </div>
             </div>
         </Main>
-    // </AuthWraper>
+    </AuthWraper>
   )
 }
 
-export default PublicProfile
+export default PublicProfileV2

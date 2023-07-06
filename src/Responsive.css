@@ -8,6 +8,11 @@
     }
     
 }
+@media (max-width:1050px) {
+    .skilldetail .skill-detail-user{
+        min-width: 100%;
+    }
+}
 @media (max-width:731px) {
     .modal-drop{
         right: -10rem;

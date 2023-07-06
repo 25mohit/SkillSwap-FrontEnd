@@ -1,12 +1,18 @@
 import moment from 'moment'
 import { BsFillBookmarkHeartFill, BsGithub, BsGlobe, BsInstagram } from 'react-icons/bs'
 import { PiDotOutlineDuotone } from 'react-icons/pi'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 const SingleSkill = ({ user, skill}) => {
     
     const imageEndpoint = process.env.REACT_APP_IMAGE_ENDPOINT
 
+    const naviagte = useNavigate()
+
+    const onOpenHandler = () => {
+        naviagte(`/skill/detail/${skill?._id}`)
+    }
+    
   return (
     <div className='single-skill'>
         <BsFillBookmarkHeartFill id='book'/>
@@ -34,7 +40,7 @@ const SingleSkill = ({ user, skill}) => {
                 <p className="description">{skill?.skillDescription}</p>
             </div>
             <div className="row">
-                <span className="link">Open</span>
+                <span className="link" onClick={onOpenHandler}>Open</span>
                 <span className="link">Send Swap Request</span>
             </div>
         </div>
