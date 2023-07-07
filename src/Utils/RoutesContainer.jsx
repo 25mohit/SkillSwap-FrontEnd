@@ -14,6 +14,7 @@ import UserSettings from "../components/Helpers/UserSettings/UserSettings"
 import UserBookmark from "../components/Helpers/UserBookmark/UserBookmark"
 // import SkillDetail from "../components/Pages/SkillDetail"
 import { Suspense, lazy } from "react"
+import PublicProfileV2 from "../components/Pages/PublicProfileV2/PublicProfileV2"
 import Loading from "./Component/Loading/Loading"
 
 const RoutesContainer = () => {
@@ -25,7 +26,7 @@ const RoutesContainer = () => {
   const AddSkill = lazy(() => import("../components/Pages/AddSkill/AddSkill"))
   const UserProfile = lazy(() => import("../components/Helpers/UserProfile/UserProfile"))
   const UserSkills = lazy(() => import("../components/Helpers/UserSkills/UserSkills"))
-  const PublicProfileV2 = lazy(() => import("../components/Pages/PublicProfileV2/PublicProfileV2"))
+  // const PublicProfileV2 = lazy(() => import("../components/Pages/PublicProfileV2/PublicProfileV2"))
   const SkillDetail = lazy(() => import("../components/Pages/SkillDetail"))
 
   return (

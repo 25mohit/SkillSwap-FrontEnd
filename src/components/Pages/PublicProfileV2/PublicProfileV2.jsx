@@ -14,15 +14,17 @@ const PublicProfileV2 = () => {
     const dispatch = useDispatch()
     
     useEffect(() => {
-        dispatch(GetPublicProfile(userProfile))
+        if(userProfile !== ''){
+            dispatch(GetPublicProfile(userProfile))
+        }
     },[])
 
     const profileData = useSelector(state => state.home.publicProfileData)
 
 
   return (
-    <AuthWraper>
-        <Main>
+    // <AuthWraper>
+        // <Main>
             <div className="public-profile-container" >
                 <div className="body">
                     <div className="image">
@@ -69,12 +71,12 @@ const PublicProfileV2 = () => {
                 <div className="body">
                     <h3>Skills</h3>
                     {
-                        profileData?.skills?.map((skill, inde) => <SkillDetailRow key={inde} heading={skill?.skillName} skills={skill} publicShow={true}/>)
+                        profileData!== undefined && profileData !== null && profileData?.skills?.map((skill, inde) => <SkillDetailRow key={inde} heading={skill?.skillName} skills={skill} publicShow={true}/>)
                     }
                 </div>
             </div>
-        </Main>
-    </AuthWraper>
+        // </Main>
+    // </AuthWraper>
   )
 }
 

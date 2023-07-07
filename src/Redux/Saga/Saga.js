@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { all, fork, put, take, takeEvery } from 'redux-saga/effects';
+import { all, fork, put, takeEvery } from 'redux-saga/effects';
 import * as Actions from '../types';
 import { NotificationHandler, SaveAPIResponse, SaveAllPaginateSkills, SaveAllSkills, SaveNotifications, SaveProfile, SavePublicProfile, SaveSingleSkill } from '../Actions/Actions';
 

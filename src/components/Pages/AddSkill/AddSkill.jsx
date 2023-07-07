@@ -38,7 +38,7 @@ const AddSkill = () => {
     const {actionMode} = useParams()
     const dispatch = useDispatch()
     const naviagte = useNavigate()
-    const editData = useSelector(state => state.home.singleSkill)
+    const editData = useSelector(state => state.home.singleSkill)?.skill
     const response = useSelector(state => state.home.APIRESPONSE)
 
     useEffect(() => {
