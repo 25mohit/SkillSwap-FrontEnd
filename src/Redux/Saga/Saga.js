@@ -3,7 +3,7 @@ import { all, fork, put, takeEvery } from 'redux-saga/effects';
 import * as Actions from '../types';
 import { NotificationHandler, SaveAPIResponse, SaveAllPaginateSkills, SaveAllSkills, SaveNotifications, SaveProfile, SavePublicProfile, SaveSingleSkill } from '../Actions/Actions';
 
-const PROJECT_MODE = "productionde"
+const PROJECT_MODE = "production"
 
 const API = PROJECT_MODE === "production" ? "https://skillswap-api.onrender.com" : process.env.REACT_APP_ENDPOINT ;
 
