@@ -17,7 +17,7 @@ const Navbar = ({ onChange, toogle }) => {
   return (
     <div className="navbar flex-between">
       <div className="flex-row">
-        <CiMenuKebab onClick={() => onChange(!toogle)} id='nav-icon'/>
+        {window.location.href?.split('/')?.[3] === 'profile' && <CiMenuKebab onClick={() => onChange(!toogle)} id='nav-icon'/>}
         <Link to='/'>
           <h2 className="main-logo">SkillSwap</h2>
         </Link>
