@@ -5,7 +5,7 @@ import { NotificationHandler, SaveAPIResponse, SaveAllPaginateSkills, SaveAllSki
 
 const PROJECT_MODE = "production"
 
-const API = PROJECT_MODE === "production" ? "https://skillswap-api.onrender.com" : process.env.REACT_APP_ENDPOINT ;
+const API = PROJECT_MODE === "production" ? "https://skillswap.up.railway.app" : process.env.REACT_APP_ENDPOINT ;
 
 const config = () => {
     let TOKEN = localStorage.getItem("token");
