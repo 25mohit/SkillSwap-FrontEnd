@@ -4,8 +4,8 @@ import { BsFacebook, BsGithub, BsGlobe, BsInstagram, BsLinkedin, BsTwitter } fro
 import SkillDetailRow from '../../Helpers/UserProfile/SkillDetailRow'
 import { useDispatch, useSelector } from 'react-redux'
 import { GetPublicProfile } from '../../../Redux/Actions/Actions'
-import AuthWraper from '../../../Utils/Component/AuthWraper'
-import Main from '../../Layouts/Main/Main'
+// import AuthWraper from '../../../Utils/Component/AuthWraper'
+// import Main from '../../Layouts/Main/Main'
 
 const PublicProfileV2 = () => {
    
@@ -21,6 +21,8 @@ const PublicProfileV2 = () => {
 
     const profileData = useSelector(state => state.home.publicProfileData)
 
+    console.log("profileData", profileData);
+    const imageEndpoint = process.env.REACT_APP_IMAGE_ENDPOINT
 
   return (
     // <AuthWraper>
@@ -28,7 +30,7 @@ const PublicProfileV2 = () => {
             <div className="public-profile-container" >
                 <div className="body">
                     <div className="image">
-                        <img src="../Assets/Image/myImage.jpg" alt="" />
+                        <img src={`${imageEndpoint}${profileData?.user?.profile}`} alt="" />
                     </div>
                     <div className="flex-row">
                         <div className="div">

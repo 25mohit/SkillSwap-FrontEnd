@@ -601,7 +601,8 @@
         border-radius: 2px;
 }
 .public-profile-container{
-        height: calc(96vh - var(--navbar-height));
+        height: 100vh;
+        /* height: calc(96vh - var(--navbar-height)); */
         justify-content: space-between;
         display: flex;
         padding: 0 2rem;
@@ -620,7 +621,8 @@
 }
 .public-profile-container .body:nth-child(2){
         border-right: none;
-        max-height: calc(96vh - var(--navbar-height));
+        max-height: 100vh;
+        /* max-height: calc(96vh - var(--navbar-height)); */
         overflow: auto;
         width: 58%;
 }

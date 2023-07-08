@@ -118,7 +118,7 @@ function* updateSkillReq(skillData){
 
 function* getUserPublicProfileFetch(publicProfile){
     // console.log("publicProfile", publicProfile);
-    const publicProfileRes = yield axios.post(`${API}/user/public-profile/${publicProfile.payload}`,{},  config())
+    const publicProfileRes = yield axios.post(`${API}/user/public-profile/${publicProfile.payload}`,{})
     .then((res) => {
         const response = res.data
         return response
