@@ -34,6 +34,9 @@ const AddSkill = () => {
     const [skillVisibility, setSkillVisibility] = useState({})
     const [isEdit, setIsEdit] = useState(false)
     const [isLoading, setIsLoading] = useState(false)
+    const [showDeleteModal, setShowDeleteModal] = useState(false)
+    const [skillId, setSkillId] = useState('')
+
 
     const {actionMode} = useParams()
     const dispatch = useDispatch()
@@ -96,9 +99,6 @@ const AddSkill = () => {
     const addEditButton = () => {
         return <button className="btn-primary" onClick={onSubmitHandler}>{isLoading ? 'Loading...' : isEdit ? 'Edit Skill' : 'Add Skill'}</button>
     }
-
-    const [showDeleteModal, setShowDeleteModal] = useState(false)
-    const [skillId, setSkillId] = useState('')
 
     const onDeleteHandler = e => {
         e.preventDefault()

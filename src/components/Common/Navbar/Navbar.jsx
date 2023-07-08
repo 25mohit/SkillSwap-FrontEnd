@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom'
 import { BsFillBellFill } from 'react-icons/bs'
+import { CiMenuKebab } from 'react-icons/ci'
 import NotificationDropDown from '../Notification/NotificationDropDown'
 import { useState } from 'react'
 
-const Navbar = () => {
+const Navbar = ({ onChange, toogle }) => {
   const isLoggedIn = Boolean(localStorage.getItem('loggedIn'))
 
   const onLogoutHandler = () => {
@@ -15,9 +16,12 @@ const Navbar = () => {
 
   return (
     <div className="navbar flex-between">
-      <Link to='/'>
-        <h2 className="main-logo">SkillSwap</h2>
-      </Link>
+      <div className="flex-row">
+        <CiMenuKebab onClick={() => onChange(!toogle)} id='nav-icon'/>
+        <Link to='/'>
+          <h2 className="main-logo">SkillSwap</h2>
+        </Link>
+      </div>
       <div className="link-group flex">
         <span  id='notification-icon' ><BsFillBellFill onMouseEnter={() => setShowNotification(true)} onMouseLeave={() => setShowNotification(false)} />
           <NotificationDropDown showNotification={showNotification} setShowNotification={setShowNotification}/>

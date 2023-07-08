@@ -3,7 +3,7 @@ import Navbar from "../../Common/Navbar/Navbar"
 const Main = props => {
   return (
     <div className='main-layout'>
-      <Navbar />
+      <Navbar onChange={props?.onChange} toogle={props.toogle}/>
       {props.children}
     </div>
   )
