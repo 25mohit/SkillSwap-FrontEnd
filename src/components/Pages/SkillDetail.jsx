@@ -19,7 +19,6 @@ const SkillDetail = () => {
   const skillData = useSelector(state => state.home.singleSkill)
   const imageEndpoint = process.env.REACT_APP_IMAGE_ENDPOINT
 
-  console.log("skillData", skillData,skillUUID);
   return (
     <AuthWraper>
         <Main>
@@ -68,7 +67,7 @@ const SkillDetail = () => {
                     }   
                 </div>
                 <div className="flex-row">
-                  <span>Updated at</span>
+                  <span>Last updated</span>
                   <span>{moment(skillData?.skill?.updatedAt).startOf('hour').fromNow()}</span>
                 </div>
                 <div className="flex-row">

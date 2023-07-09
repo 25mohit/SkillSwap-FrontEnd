@@ -1,4 +1,4 @@
-import { LOGIN_USER, NOTIFICATION_BAR, SAVE_ALL_PAGINATE_SKILLS, SAVE_API_RESPONSE, SAVE_NOTIFICATION, SAVE_PROFILE, SAVE_SINGLE_SKILL, SAVE_SKILL_LISTS, SAVE_USER_PUBLIC_PROFILE } from "../types"
+import { LOGIN_USER, NOTIFICATION_BAR, SAVE_ALL_PAGINATE_SKILLS, SAVE_API_RESPONSE, SAVE_BOOKMARKS, SAVE_NOTIFICATION, SAVE_PROFILE, SAVE_SINGLE_SKILL, SAVE_SKILL_LISTS, SAVE_USER_PUBLIC_PROFILE } from "../types"
 
 const initialState = {
     skillsList:[],
@@ -8,6 +8,7 @@ const initialState = {
     notifications:{},
     notification:{},
     allFilteredSkills:[],
+    bookmarks:[],
 }
 
 const homeReducer = (state = initialState, action) => {
@@ -57,6 +58,11 @@ const homeReducer = (state = initialState, action) => {
                 ...state,
                 allFilteredSkills:action.payload
             }
+            case SAVE_BOOKMARKS:
+                return {
+                    ...state,
+                    bookmarks: action.payload
+                }
         default:
             return state
     }

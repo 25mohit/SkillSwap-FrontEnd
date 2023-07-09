@@ -28,7 +28,7 @@ const UserSkills = () => {
     <ProfileLayout>
       <div className="skill-control-header flex-between">
         <div className='flex'>
-          <h2>You have added total {skillsList?.length} Skills</h2>
+          <h2 className='heading-main'>You have added total {skillsList?.length} Skills</h2>
         </div>
         <div>
           <button className="btn-primary" onClick={onAddNewHandler}>Add New Skill</button>

@@ -10,7 +10,7 @@ const MobileSidebar = ({sidebarData, onChange, toogle}) => {
       </div>
       {
         sidebarData?.map((sidebar, index) => 
-        <Link to={sidebar?.link} key={index} className='sidebar-icon'>
+        <Link to={sidebar?.link} key={index} className='sidebar-icon' onClick={() => onChange(false)}>
           <label htmlFor="">{sidebar?.icon}</label>
           <p className="tooltip">{sidebar?.label}</p>
         </Link> )

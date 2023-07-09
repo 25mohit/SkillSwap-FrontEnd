@@ -489,10 +489,6 @@
         margin-top: -0.7rem;
         padding: 0.8rem 0;
 }
-.skill-control-header h2 {
-        color: rgba(40,40,40,0.8)  ;
-        letter-spacing: 0.6px;
-}
 .user-request .request-toogle{
         width: fit-content;
         border-radius: 5px;
@@ -820,10 +816,12 @@
 }
 .skilldetail .container{
         box-shadow: var(--box-shadow);
-        color: white;
+        color: rgba(17,17,17,0.8);
         border-radius: var(--border-radius-primary);
         padding: 0.6rem 1.6rem;
-        background: var(--primary-color);
+        background-image: linear-gradient(-20deg, #00cdac 0%, #8ddad5 100%);
+
+        /* background: var(--primary-color); */
         display: flex;
         flex-wrap: wrap;
         /* gap: 2rem; */
@@ -833,4 +831,8 @@
         font-size: 12rem;
         cursor: pointer;
         color: rgba(164, 162, 162, 0.608);
+}
+.heading-main{
+        font-size: 1.2rem;
+        color: rgba(20,20,20,0.8);
 }

@@ -1,11 +1,11 @@
 import axios from 'axios';
 import { all, fork, put, takeEvery } from 'redux-saga/effects';
 import * as Actions from '../types';
-import { NotificationHandler, SaveAPIResponse, SaveAllPaginateSkills, SaveAllSkills, SaveNotifications, SaveProfile, SavePublicProfile, SaveSingleSkill } from '../Actions/Actions';
+import { NotificationHandler, SaveAPIResponse, SaveAllPaginateSkills, SaveAllSkills, SaveBookmarks, SaveNotifications, SaveProfile, SavePublicProfile, SaveSingleSkill } from '../Actions/Actions';
 
-const PROJECT_MODE = "production"
-
-const API = PROJECT_MODE === "production" ? "https://skillswap.up.railway.app" : process.env.REACT_APP_ENDPOINT ;
+const PROJECT_MODE = "production89"
+// "https://skillswap.up.railway.app"
+const API = PROJECT_MODE === "production" ? "https://skillswap-api.onrender.com" : process.env.REACT_APP_ENDPOINT ;
 
 const config = () => {
     let TOKEN = localStorage.getItem("token");
@@ -235,6 +235,56 @@ function* uploadUserMedia(mediaData){
     }
 }
 
+function* getAllBookmarks(){
+    const bookmarksRes = yield axios.get(`${API}/user/bookmark-get`,  config())
+    .then((res) => {
+        const response = res.data
+        return response
+    })
+    .catch((err) => {
+        const errMsg = err.message;
+        return errMsg
+    })
+    if(bookmarksRes){
+        console.log("bookmarksRes", bookmarksRes);
+        yield put(SaveBookmarks(bookmarksRes?.result))
+    }
+}
+
+function* removeBookmark(bookmarkID){
+    const bookmarkDeleteRes = yield axios.delete(`${API}/user/bookmark-remove/${bookmarkID.payload}`,  config())
+    .then((res) => {
+        const response = res.data
+        return response
+    })
+    .catch((err) => {
+        const errMsg = err.message;
+        return errMsg
+    })
+    if(bookmarkDeleteRes){           
+        console.log("bookmarkDeleteRes", bookmarkDeleteRes);
+        yield put(NotificationHandler({status: true, message:bookmarkDeleteRes?.message, type: "danger"}))
+    }
+}
+
+function* addNewBookmark(data){
+    const addBookmarkRes = yield axios.post(`${API}/user/bookmark`, data.payload,  config())
+    .then((res) => {
+        const response = res.data
+        return response
+    })
+    .catch((err) => {
+        const errMsg = err.response.data;
+        NotificationHandler({status: true, message: errMsg?.message, type: 'danger'})
+        return errMsg
+    })
+    if(addBookmarkRes){           
+        console.log("addBookmarkRes", addBookmarkRes);
+        yield put(NotificationHandler({status: true, message:addBookmarkRes?.message}))
+        // yield put(getAllBookmarks())
+    }
+}
+
 export function* HomeWatcher() {
     yield takeEvery(Actions.LOGIN_USER, loginUserSaga);
     yield takeEvery(Actions.GET_ALL_SKILLS, fetchSkillsList);
@@ -247,7 +297,10 @@ export function* HomeWatcher() {
     yield takeEvery(Actions.GET_NOTIFICATION, getNotification);
     yield takeEvery(Actions.DELETE_SINGLE_SKILL, deleteSkill);
     yield takeEvery(Actions.GET_ALL_SKILLS_PAGINATE, allSkillsPaginateReq);
+    yield takeEvery(Actions.GET_BOOKMARKS, getAllBookmarks);
+    yield takeEvery(Actions.ADD_BOOKMARKS, addNewBookmark);
     yield takeEvery(Actions.UPLOAD_MEDIA, uploadUserMedia);
+    yield takeEvery(Actions.REMOVE_BOOKMARKS, removeBookmark);
 }
 
 export default function* rootSaga() {

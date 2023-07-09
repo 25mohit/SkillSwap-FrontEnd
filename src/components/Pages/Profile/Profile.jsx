@@ -34,17 +34,7 @@ const Profile = () => {
       label: 'Bookmarks',
       link:'bookmark',
       icon: <BsFillBookmarkStarFill />
-    },
-    {
-      label: 'Support',
-      link:'support',
-      icon: <BiSupport />
-    },
-    {
-      label: 'Settings',
-      link:'settings',
-      icon: <LuSettings />
-    },
+    }
   ]
 
   const [toogleBar, setToogleBar] = useState(false)

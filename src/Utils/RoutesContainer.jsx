@@ -9,9 +9,7 @@ import { Route, Routes } from "react-router-dom"
 // import UserSkills from "../components/Helpers/UserSkills/UserSkills"
 // import PublicProfile from "../components/Pages/PublicProfile/PublicProfile"
 import UserRequests from "../components/Helpers/UserRequests/UserRequests"
-import UserSupport from "../components/Helpers/UserSupport/UserSupport"
-import UserSettings from "../components/Helpers/UserSettings/UserSettings"
-import UserBookmark from "../components/Helpers/UserBookmark/UserBookmark"
+// import UserBookmark from "../components/Helpers/UserBookmark/UserBookmark"
 // import SkillDetail from "../components/Pages/SkillDetail"
 import { Suspense, lazy } from "react"
 // import PublicProfileV2 from "../components/Pages/PublicProfileV2/PublicProfileV2"
@@ -28,6 +26,7 @@ const RoutesContainer = () => {
   const UserSkills = lazy(() => import("../components/Helpers/UserSkills/UserSkills"))
   const PublicProfileV2 = lazy(() => import("../components/Pages/PublicProfileV2/PublicProfileV2"))
   const SkillDetail = lazy(() => import("../components/Pages/SkillDetail"))
+  const UserBookmark = lazy(() => import("../components/Helpers/UserBookmark/UserBookmark"))
 
   return (
     <Suspense fallback={<Loading />}>
@@ -40,9 +39,7 @@ const RoutesContainer = () => {
             <Route path="user" exact element={<UserProfile />} />
             <Route path="skills" exact element={<UserSkills />} />
             <Route path="requests" exact element={<UserRequests />} />
-            <Route path="support" exact element={<UserSupport />} />
             <Route path="bookmark" exact element={<UserBookmark />} />
-            <Route path="settings" exact element={<UserSettings />} />
           <Route path="skills/:actionMode" exact element={<AddSkill />} />
           </Route>
           <Route path="/skill/detail/:skillUUID" exact element={<SkillDetail />} />

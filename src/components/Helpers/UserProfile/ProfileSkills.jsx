@@ -8,7 +8,7 @@ const ProfileSkills = ({ lists }) => {
     <CardLayout>
         <div className="profile-skill-card">
             <nav className='flex-between'>
-                <h3>Your Skills</h3>
+                <h3 className="heading-main">Your Skills</h3>
                 <div>
                     <Input type="text" placeholder="Search" size="small"/>
                 </div>

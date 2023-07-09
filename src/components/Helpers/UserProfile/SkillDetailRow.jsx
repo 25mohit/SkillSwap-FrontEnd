@@ -3,7 +3,7 @@ import moment from 'moment'
 import { useNavigate } from 'react-router-dom'
 import { useEffect } from 'react'
 
-const SkillDetailRow = ({ heading, skills, fullControl, publicShow }) => {
+const SkillDetailRow = ({ heading, skills, fullControl, publicShow, type, bookFunction }) => {
 
     const navigate = useNavigate()
 
@@ -52,6 +52,7 @@ const SkillDetailRow = ({ heading, skills, fullControl, publicShow }) => {
                         <span className="info">SkillSwap Requested {skills?.receivedSkill} time{skills?.receivedSkill > 1 ? 's' : ''}</span></>}
                         <BsDot style={{color:'purple'}}/>
                         <span className="info">12 Requests Pending</span>
+                     
                     </div>
                 }
             </div>
@@ -61,7 +62,9 @@ const SkillDetailRow = ({ heading, skills, fullControl, publicShow }) => {
             {
                 fullControl && <button className="btn-primary edit" onClick={onEditHandler}>Edit</button>
             }
-            
+            {
+                type === "bookmark" && <button className='btn-primary danger' onClick={() => bookFunction(skills?.bookID)}>Remove</button>
+            }
         </div>
     </div>
   )
