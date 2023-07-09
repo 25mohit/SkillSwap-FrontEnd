@@ -17,11 +17,8 @@ const SingleSkill = ({ user, skill}) => {
     }
 
     const onAddBookmarkHandler = (id) => {
-        console.log("myData", id);
         dispatch(AddBookmark({skillId: id}))
     }
-    
-    console.log("user", user)
     
   return (
     <div className='single-skill'>
