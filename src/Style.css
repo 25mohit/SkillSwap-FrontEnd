@@ -899,8 +899,12 @@
         margin-bottom: 2rem;
 }
 .terms header h1{
-        color: rgb(251, 201, 0);
+        background-image: linear-gradient(92.88deg, #673FD7 9.16%, #5643CC 43.89%, #455EB5 64.72%);
+        /* width: fit-content; */
         text-align: center;
+        color: white;
+        padding: 0.6rem 1rem;
+        border-radius: 5px;
 }
 .terms section h2 {
 color: rgb(50, 50, 50);
