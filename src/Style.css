@@ -897,13 +897,15 @@
 }
 .terms header{
         margin-bottom: 2rem;
+        display: flex;
+        justify-content: center;
 }
 .terms header h1{
         background-image: linear-gradient(92.88deg, #673FD7 9.16%, #5643CC 43.89%, #455EB5 64.72%);
-        /* width: fit-content; */
+        width: fit-content;
         text-align: center;
         color: white;
-        padding: 0.6rem 1rem;
+        padding: 0.3rem 0.8rem;
         border-radius: 5px;
 }
 .terms section h2 {

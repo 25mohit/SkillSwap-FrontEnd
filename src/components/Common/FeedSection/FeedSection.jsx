@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import Footer from "../Footer/Footer"
 import { useDispatch, useSelector } from 'react-redux'
 import { GetAllSkillsPaginate } from '../../../Redux/Actions/Actions'
 import SingleSkill from '../../Helpers/SingleSkill/SingleSkill'
@@ -25,6 +26,7 @@ const FeedSection = () => {
           skillsList?.map((skill, index) => <SingleSkill key={index} skill={skill?.skill} user={skill?.user}/>)
         }
       </div>
+      <Footer />
     </div>
   )
 }
