@@ -906,6 +906,12 @@
         padding: 0.6rem 1rem;
         border-radius: 5px;
 }
+.terms section h2 {
+color: rgb(50, 50, 50);
+}
+.terms section h3 {
+color: rgb(74, 74, 74);
+}
 .terms::before{
         content: '';
         position: absolute;
