@@ -15,6 +15,24 @@
     }
     
 }
+@media (max-width:1201px) {
+    
+    .form{
+        padding: 1rem;
+    }
+    .form .right {
+        background-color: rgba(255, 255, 255, 0.283);
+        padding: 3rem 0;
+        border-radius: 25px;
+        backdrop-filter: blur(3px);
+        width: 100%;
+    }
+    .form .left {
+        /* background-color: red; */
+        width: 100%;
+    }
+    
+}
 @media (max-width:1050px) {
     .skilldetail .skill-detail-user{
         min-width: 100%;
@@ -98,5 +116,9 @@
     }
     .profile-layout{
         padding: 2rem 1rem;
+    }
+    
+    .form .right {
+        display: none;
     }
 }

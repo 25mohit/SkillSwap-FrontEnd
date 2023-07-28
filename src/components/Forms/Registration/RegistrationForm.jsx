@@ -75,7 +75,7 @@ const RegistrationForm = () => {
         <Input value={userForm?.mobile} onChange={onChangeHandler} type="number" placeholder="Mobile no" name="mobile"/>
         <button className="btn-primary" onClick={onRegisterHandler}>Register</button>
         <div className="footer flex-between">
-          <Link to="/login">Terms & Conditions</Link >
+          <Link to="/terms-and-conditions" target='_blank'>Terms & Conditions</Link >
           <span>Already have an account&nbsp;<Link to="/login">Sign In</Link>?</span>
         </div>
     

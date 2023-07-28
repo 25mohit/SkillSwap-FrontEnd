@@ -115,14 +115,65 @@
 }
 .form{
         display: flex;
+        flex-wrap: wrap;
+        flex-direction: row-reverse;
+        align-items: center;
+        /* justify-content: center; */
+        min-height: 100vh;
+        overflow: auto;
+        padding: 1rem 3%;
+        position: relative;
+}
+.form::after{
+        content: '';
+        bottom: 0;
+        left: 0;
+        position: absolute;
+        width: 250px;
+        z-index: -1;
+        aspect-ratio: 1/1;
+        border-radius:0 80% 0 0 ;
+        background-image: var(--primary-color);
+        box-shadow: 0 0 25px rgba(20,20,20,0.4);
+}
+.form::before{
+        content: '';
+        top: 0;
+        right: 0;
+        position: absolute;
+        width: 150px;
+        z-index: -1;
+        aspect-ratio: 1/1;
+        border-radius:0 0 0 80%;
+        background-image: var(--primary-color);
+        box-shadow: 0 0 25px rgba(20,20,20,0.4);
+}
+.form > div {
+        display: flex;
         align-items: center;
         justify-content: center;
-        min-height: 95vh;
-        padding: 1rem;
+}
+.form .right{
+        width: 50%;
+}
+.form .left{
+        width: 50%;
+}
+.login-content{
+        /* text-align: left; */
+        gap: 1rem;
+}
+.login-content > h2{
+        color: #455EB5;
+        text-align: center;
+}
+.login-content > p{
+        line-height: 38px;
 }
 .auth-form{
         width: 550px;
-        background-color: white;
+        background-color: rgba(255, 255, 255, 0.651);
+        backdrop-filter: blur(3px);
 }
 #back-icon{
         cursor: pointer;
@@ -835,4 +886,54 @@
 .heading-main{
         font-size: 1.2rem;
         color: rgba(20,20,20,0.8);
+}
+.terms{
+        width: 100vw;
+        max-height: auto;
+        overflow: auto;
+        text-align: left;
+        padding: 2% 3%;
+        position: relative;
+}
+.terms header{
+        margin-bottom: 2rem;
+}
+.terms header h1{
+        background-image: var(--primary-color);
+        width: fit-content;
+        /* text-align: center; */
+        color: white;
+        padding: 0.6rem 1rem;
+        border-radius: 5px;
+}
+.terms::before{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 250px;
+        aspect-ratio: 1/1;
+        background-image: var(--primary-color);
+        border-radius: 0  0 70%  0;
+        z-index: -1;
+}
+.terms::after{
+        content: '';
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 250px;
+        aspect-ratio: 1/1;
+        background-image: var(--primary-color);
+        border-radius: 70% 0  0 0;
+        z-index: -1;
+}
+.terms > section {
+        gap: 1rem;
+        border-radius: 15px;
+        background-color: rgba(255, 255, 255, 0.263);
+        backdrop-filter: blur(3px);
+        padding: 1.5rem 2rem;
+        width: fit-content;
+        position: relative;
 }

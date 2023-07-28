@@ -27,6 +27,7 @@ const RoutesContainer = () => {
   const PublicProfileV2 = lazy(() => import("../components/Pages/PublicProfileV2/PublicProfileV2"))
   const SkillDetail = lazy(() => import("../components/Pages/SkillDetail"))
   const UserBookmark = lazy(() => import("../components/Helpers/UserBookmark/UserBookmark"))
+  const TermsAndConditions = lazy(() => import("../components/Pages/Terms&Conditions/Terms&Conditions"))
 
   return (
     <Suspense fallback={<Loading />}>
@@ -44,6 +45,7 @@ const RoutesContainer = () => {
           </Route>
           <Route path="/skill/detail/:skillUUID" exact element={<SkillDetail />} />
           <Route path="/u/:userProfile" exact element={<PublicProfileV2 />} />
+          <Route path="/terms-and-conditions" exact element={<TermsAndConditions />} />
       </Routes>
     </Suspense>
   )

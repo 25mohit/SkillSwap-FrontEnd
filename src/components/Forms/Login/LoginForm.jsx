@@ -68,7 +68,7 @@ const LoginForm = () => {
         <Input onChange={onChangeHandler} onInput={() => setErrors({...errors, password:false})} value={userForm.password} error={errors.password} type="password" placeholder="Enter your password" name="password"/>
         <button className="btn-primary" onClick={onLoginHandler}>Sign In</button>
         <div className="footer flex-between">
-          <Link to="/login">Terms & Conditions</Link >
+          <Link to="/terms-and-conditions" target='_blank'>Terms & Conditions</Link >
           <span>Didn't have a account&nbsp;<Link to="/register">Register</Link>?</span>
         </div>
     </Form>

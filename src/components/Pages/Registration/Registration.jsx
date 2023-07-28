@@ -1,9 +1,15 @@
 import RegistrationForm from '../../Forms/Registration/RegistrationForm'
+import LoginContent from '../Login/LoginContent'
 
 const Registration = () => {
   return (
     <div className="form">
-      <RegistrationForm />
+      <div className="left">
+        <RegistrationForm />
+      </div>
+      <div className="right">
+        <LoginContent />
+      </div>
     </div>
   )
 }
