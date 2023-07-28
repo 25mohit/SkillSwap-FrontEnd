@@ -899,12 +899,8 @@
         margin-bottom: 2rem;
 }
 .terms header h1{
-        background-image: var(--primary-color);
-        width: fit-content;
-        /* text-align: center; */
-        color: white;
-        padding: 0.6rem 1rem;
-        border-radius: 5px;
+        color: rgb(251, 201, 0);
+        text-align: center;
 }
 .terms section h2 {
 color: rgb(50, 50, 50);
