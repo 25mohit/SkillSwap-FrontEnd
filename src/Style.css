@@ -28,6 +28,10 @@
 }
 .navbar .link-group{
         gap: 1rem;
+        display: flex;
+}
+.mobile{
+        display: none;
 }
 .empty{
         padding: 1rem;

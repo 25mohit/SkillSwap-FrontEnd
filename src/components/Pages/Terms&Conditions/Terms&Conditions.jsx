@@ -1,6 +1,5 @@
 import { TermsJSONData } from "./TermsJSON"
 
-
 const TermsAndConditions = () => {
   return (
     <div className='terms flex-column'>

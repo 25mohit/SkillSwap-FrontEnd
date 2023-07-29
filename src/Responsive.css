@@ -121,4 +121,11 @@
     .form .right {
         display: none;
     }
+    
+    .navbar .link-group{
+        display: none;
+    }
+    .navbar .mobile{
+        display: flex;
+    }
 }

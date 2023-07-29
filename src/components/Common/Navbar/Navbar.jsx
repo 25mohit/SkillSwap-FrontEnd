@@ -1,5 +1,8 @@
 import { Link } from 'react-router-dom'
 import { BsFillBellFill } from 'react-icons/bs'
+import { ImHome } from 'react-icons/im'
+import { FaRegUser } from 'react-icons/fa'
+import { GrLogout } from 'react-icons/gr'
 import { CiMenuKebab } from 'react-icons/ci'
 import NotificationDropDown from '../Notification/NotificationDropDown'
 import { useState } from 'react'
@@ -22,7 +25,7 @@ const Navbar = ({ onChange, toogle }) => {
           <h2 className="main-logo">SkillSwap</h2>
         </Link>
       </div>
-      <div className="link-group flex">
+      <div className="link-group">
         <span  id='notification-icon' ><BsFillBellFill onMouseEnter={() => setShowNotification(true)} onMouseLeave={() => setShowNotification(false)} />
           <NotificationDropDown showNotification={showNotification} setShowNotification={setShowNotification}/>
         </span>          
@@ -31,6 +34,11 @@ const Navbar = ({ onChange, toogle }) => {
         {
           isLoggedIn ? <span onClick={onLogoutHandler} className='link'>Logout</span> : null
         }
+      </div>
+      <div className="flex-row mobile">
+        <Link to='/home'><ImHome /></Link>
+        <Link to='/profile/user'><FaRegUser /></Link>
+        <span onClick={onLogoutHandler} className='link'><GrLogout /></span>
       </div>
     </div>
   )
