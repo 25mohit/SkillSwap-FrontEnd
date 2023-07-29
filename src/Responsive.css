@@ -15,6 +15,22 @@
     }
     
 }
+
+@media (max-width: 1277px){
+    .public-profile .container{
+        justify-content: center;
+        padding: 1rem;
+        gap: 1rem;
+    }
+    .public-profile .container .body{
+        box-shadow: var(--box-shadow);
+        border-radius: 9px;
+    }
+    .public-profile .container .body:nth-child(2){
+        width: 100%;
+    }
+    
+}
 @media (max-width:1201px) {
     
     .form{
@@ -76,22 +92,16 @@
         height: 1.1rem;
         overflow: hidden;
     }
-}
-@media (max-width: 1277px){
-    .public-profile .container{
-        justify-content: center;
-        padding: 1rem;
-        gap: 1rem;
-    }
-    .public-profile .container .body{
-        box-shadow: var(--box-shadow);
-        border-radius: 9px;
-    }
-    .public-profile .container .body:nth-child(2){
-        width: 100%;
+    
+    .home .container .sidebar{
+        display: none;
     }
     
+    .home .container .feed-section{
+        width: 100%;
+    }
 }
+
 @media (max-width:550px) {
     .modal-drop{
         max-width: 90vw;
