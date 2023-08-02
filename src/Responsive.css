@@ -100,6 +100,17 @@
     .home .container .feed-section{
         width: 100%;
     }
+    
+    /* .single-skill .container .row span{
+        display: none;
+    } */
+    .single-skill .container .row #dot{
+        display: none;
+    }
+    .single-skill .container .row > div{
+        background-color: orange;
+        display: none;
+    }
 }
 
 @media (max-width:550px) {

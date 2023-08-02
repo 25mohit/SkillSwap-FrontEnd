@@ -23,27 +23,33 @@ const SingleSkill = ({ user, skill}) => {
   return (
     <div className='single-skill'>
         <BsFillBookmarkHeartFill id='book' onClick={() => onAddBookmarkHandler(skill?._id)}/>
-        <div className="image">
-            <img src={`${imageEndpoint}${user?.profile}`} alt="" loading='lazy'/>
-        </div>
-        <div className="container flex-column">
-            <div className="row">
-                <Link className="name" to={`/u/@${user?.uName}`}>{user?.userName}</Link>
-                <PiDotOutlineDuotone />
-                {/* <span>5 skills</span>
-                <PiDotOutlineDuotone /> */}
-                <span>since {moment(user?.userCreatedOn).format('LL')}</span>
-                <PiDotOutlineDuotone />
-                <span>Listed on {moment(skill?.createdAt).format('LL')}</span>
-                <PiDotOutlineDuotone />
-                <div >
-                    <Link to={user?.socialMedia?.instagram} target='_blank'><BsInstagram /></Link>
-                    <Link to={user?.socialMedia?.github} target='_blank'><BsGithub /></Link>
-                    <Link to={user?.socialMedia?.website} target='_blank'><BsGlobe /></Link>
+        <div className="top-section">
+            <div className="image">
+                <img src={`${imageEndpoint}${user?.profile}`} alt="" loading='lazy'/>
+            </div>
+            <div className="container flex-column">
+                <div className="row">
+                    <Link className="name" to={`/u/@${user?.uName}`}>{user?.userName}</Link>
+                    <PiDotOutlineDuotone id='dot'/>
+                    {/* <span>5 skills</span>
+                    <PiDotOutlineDuotone id='dot'/> */}
+                    <span id='dot'>since {moment(user?.userCreatedOn).format('LL')}</span>
+                    <PiDotOutlineDuotone id='dot'/>
+                    <span id='dot'>Listed on {moment(skill?.createdAt).format('LL')}</span>
+                    <PiDotOutlineDuotone id='dot'/>
+                    <div >
+                        <Link to={user?.socialMedia?.instagram} target='_blank'><BsInstagram /></Link>
+                        <Link to={user?.socialMedia?.github} target='_blank'><BsGithub /></Link>
+                        <Link to={user?.socialMedia?.website} target='_blank'><BsGlobe /></Link>
+                    </div>
+                </div>
+                <div className="row-2">
+                    <p className='heading'>{skill?.skillName}</p>
                 </div>
             </div>
-            <div className="row-2">
-                <p className='heading'>{skill?.skillName}</p>
+        </div>
+        <div className="bottom">
+            <div className="row-3">
                 <p className="description">{skill?.skillDescription}</p>
             </div>
             <div className="row">
