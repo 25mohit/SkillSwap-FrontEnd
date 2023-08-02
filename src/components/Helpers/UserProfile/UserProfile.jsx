@@ -15,7 +15,6 @@ const UserProfile = () => {
 
   const skillsList = useSelector(state => state.home.skillsList)
 
-  console.log("skillsList", skillsList);
   return (
     <ProfileLayout>
       <section className="profile-section">
