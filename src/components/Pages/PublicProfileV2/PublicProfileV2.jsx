@@ -21,7 +21,6 @@ const PublicProfileV2 = () => {
 
     const profileData = useSelector(state => state.home.publicProfileData)
 
-    console.log("profileData", profileData);
     const imageEndpoint = process.env.REACT_APP_IMAGE_ENDPOINT
 
   return (

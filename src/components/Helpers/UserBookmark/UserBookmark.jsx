@@ -14,14 +14,11 @@ const UserBookmark = () => {
 
   const bookmarkList = useSelector(state => state.home.bookmarks)
 
-  console.log(bookmarkList);
-
   const removeBookmark = (id) => {
     dispatch(RemoveBookmark(id))
     setTimeout(() => {
       dispatch(GetBookmarks())
     },1000)
-    console.log("myId", id);
   }
   return (
     <ProfileLayout>

@@ -5,13 +5,7 @@ const Select = ({options, onChange, value, placeholder}) => {
     const [isSelected, setIsSelected] = useState(false)
     const [highlightedInd, setHighlightedInd] = useState(-1)
     const keyRef = useRef()
-
-    console.log("value", value);
-
-    // useEffect(() => {
-    //     onChange(value)
-    // },[value])
-
+    
     const onSelect = () => {
         setIsSelected(!isSelected)
     }
