@@ -4,7 +4,7 @@ const ProfileSidebar = ({ sidebarData }) => {
   return (
     <div className='profile-sidebar flex-column'>
       {
-        sidebarData?.map((sidebar, index) => <Link to={sidebar?.link} ><span className="link-btn" key={index}>{sidebar?.icon}{sidebar?.label}</span></Link>)
+        sidebarData?.map((sidebar, index) => <Link to={sidebar?.link} key={index}><span className="link-btn" key={index}>{sidebar?.icon}{sidebar?.label}</span></Link>)
       }
         
         {/* <Link to="skills" ><span className="link-btn" ><ImBooks />Skills</span></Link>
