@@ -2,6 +2,7 @@
 ///////////              USER             /////////////
 //////////////////////////////////////////////////
 export const LOGIN_USER = "LOGIN_USER"
+export const REGISTER_USER = "REGISTER_USER"
 export const GET_PROFILE = "GET_PROFILE"
 export const SAVE_PROFILE = "SAVE_PROFILE"
 export const UPLOAD_MEDIA= "UPLOAD_MEDIA"

@@ -41,10 +41,14 @@ const LoginForm = () => {
   const navigate = useNavigate()
 
   useEffect(() => {
-    if(notificationState && Object.keys(notificationState).length>0){
+    if(notificationState && Object.keys(notificationState).length>0 && notificationState?.type !== 'danger'){
       navigate('/home')
+    } else if(Object.keys(notificationState).length>0 ) {
+      navigate('/register')
     }
   },[notificationState])
+
+  console.log("notificationState", notificationState);
 
   const onLoginHandler = (e) => {
     e.preventDefault()
@@ -64,6 +68,8 @@ const LoginForm = () => {
 
   const handleCallbackResponse = (response) => {
     
+    console.log("responseresponse", response);
+    localStorage.setItem('temp-token', response?.credential)
     const responseData = JSON.parse(atob(response?.credential?.split('.')[1]))
 
     if(responseData && Object.keys(responseData).length > 0 && responseData?.email !== undefined && responseData?.email !== '') {

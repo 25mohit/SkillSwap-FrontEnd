@@ -32,15 +32,46 @@ function* loginUserSaga(userData){
         return response
     })
     .catch((err) => {
-        const errMsg = err.message;
+        const errMsg = err.response?.data;
+        // console.log("errMsg", errMsg, err);
+        // NotificationHandler({status: true, message:errMsg?.message, type:"danger"})
         return errMsg
     })
     if(loginData){
+        console.log("loginData", loginData);
         if(loginData?.status){
             yield put(NotificationHandler({status: true, message:loginData?.message}))
             localStorage.setItem('loggedIn', true)
             localStorage.setItem('token', loginData?.token)
+            localStorage.removeItem('temp-token')
+        } else {
+            yield put(NotificationHandler({status: true, message:"User not registered with us", type:'danger'}))
         }
+    }
+}
+
+function* registerUserSaga(userData){
+    const registerData = yield axios.post(`${API}/user/register`, userData.payload)
+    .then((res) => {
+        const response = res.data
+        return response
+    })
+    .catch((err) => {
+        const errMsg = err.response?.data;
+        return errMsg
+    })
+    if(registerData){
+        console.log("registerData", registerData);
+        if(registerData?.status){
+            localStorage.removeItem('temp-token')
+            yield put(NotificationHandler({status: true, message:registerData?.message}))
+        } else {
+            yield put(NotificationHandler({status: true, message:registerData?.message, type:'danger'}))
+        }
+        // if(registerData?.status){
+        //     localStorage.setItem('loggedIn', true)
+        //     localStorage.setItem('token', registerData?.token)
+        // }
     }
 }
 
@@ -264,6 +295,7 @@ function* addNewBookmark(data){
 
 export function* HomeWatcher() {
     yield takeEvery(Actions.LOGIN_USER, loginUserSaga);
+    yield takeEvery(Actions.REGISTER_USER, registerUserSaga);
     yield takeEvery(Actions.GET_ALL_SKILLS, fetchSkillsList);
     yield takeEvery(Actions.GET_SINGLE_SKILL, fetchSingleSkill);
     yield takeEvery(Actions.CREATE_SKILL_REQ, createSkillReq);
