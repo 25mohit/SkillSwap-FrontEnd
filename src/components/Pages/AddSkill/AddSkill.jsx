@@ -123,7 +123,7 @@ const AddSkill = () => {
                     <div className="div">
                         <Select onChange={setSkillVisibility} name="skillVisibility" value={skillVisibility} options={options.skillVisiblity} placeholder="Skill Visiblity" />
                     </div>
-                    <div className="div"></div>
+                    <div className="div empty"></div>
                 </div>
                 <Input onChange={onChangeHandler} name="skillTechnologies" value={skillForm?.skillTechnologies} type="text" placeholder="Enter skill technologies or services you known, releated with your skill. Seperate with comma ( , )"/>
                 {isEdit ? <div className="flex-row">

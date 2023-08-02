@@ -112,6 +112,7 @@
 }
 
 @media (max-width:550px) {
+    
     .modal-drop{
         max-width: 90vw;
     }
@@ -127,6 +128,9 @@
     .flex-row .div{
         width: 100%;
     }    
+    .flex-row .div.empty{
+        display: none;
+    }
     .profile-update .container{
         width: 96%;
     }
