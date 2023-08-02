@@ -336,7 +336,7 @@
         /* min-width: 370px; */
         gap: 1rem;
         box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-        max-height: 85vh; 
+        /* max-height: 85vh;  */
         overflow-x:visible;
         /* overflow-y: auto;  */
 }
@@ -524,6 +524,7 @@
 .skill-detail .footer-bt .date-container {
         padding-bottom: 0.2rem;
         display: flex;
+        flex-wrap: wrap;
         align-items: center;
         gap: 0.5rem;
 }

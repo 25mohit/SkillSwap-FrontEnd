@@ -45,13 +45,13 @@ const SkillDetailRow = ({ heading, skills, fullControl, publicShow, type, bookFu
             <div className="footer-bt">
                 {
                     fullControl && <div className="date-container">
-                        <span className='info'>Created on {moment(skills?.createdAt).format('LL')}</span>
-                        <BsDot style={{color:'purple'}}/>
-                        <span className='info'>Updated on {moment(skills?.updatedAt).format('LL')}</span>
-                        {skills?.receivedSkill !== undefined && skills?.receivedSkill > 0 && <><BsDot style={{color:'purple'}}/>
+                        <span className='info'>Created {moment(skills?.createdAt).format('LL')}</span>
+                        <BsDot style={{color:'purple'}} id='dot'/>
+                        <span className='info'>Updated {moment(skills?.updatedAt).format('LL')}</span>
+                        {skills?.receivedSkill !== undefined && skills?.receivedSkill > 0 && <><BsDot style={{color:'purple'}} id='dot'/>
                         <span className="info">SkillSwap Requested {skills?.receivedSkill} time{skills?.receivedSkill > 1 ? 's' : ''}</span></>}
-                        <BsDot style={{color:'purple'}}/>
-                        <span className="info">12 Requests Pending</span>
+                        {/* <BsDot style={{color:'purple'}}/>
+                        <span className="info">12 Requests Pending</span> */}
                      
                     </div>
                 }
