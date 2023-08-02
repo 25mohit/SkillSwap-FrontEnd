@@ -23,6 +23,7 @@
 .navbar  > a{
         font-size: 1.4rem;
 }
+
 .navbar #nav-icon{
         display: none;
         cursor: pointer;
@@ -31,7 +32,11 @@
         gap: 1rem;
         display: flex;
 }
-.footer{
+.btn.btn-primary{
+        background-color: red;
+        width: 2rem;
+}
+.footer-mn{
         display: flex;
         align-items: center;
         margin-top: 0.7rem;
