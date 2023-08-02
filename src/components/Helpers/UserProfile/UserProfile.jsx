@@ -15,6 +15,7 @@ const UserProfile = () => {
 
   const skillsList = useSelector(state => state.home.skillsList)
 
+  console.log("skillsList", skillsList);
   return (
     <ProfileLayout>
       <section className="profile-section">
@@ -22,7 +23,7 @@ const UserProfile = () => {
           <ProfileInfo />
         </div>
         <div>
-          <ProfileSkills lists={skillsList}/>
+          {skillsList?.length > 0 && <ProfileSkills lists={skillsList}/>}
         </div>
       </section>
     </ProfileLayout>
