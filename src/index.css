@@ -4,6 +4,7 @@
   padding: 0;
   box-sizing: border-box;
   --navbar-height: 3rem;
+  --footer-height: 2.5rem;
   --form-utils-font-size: 1rem;
   --form-utils-height: 3.3rem;
   --form-utils-radius: 5px;
