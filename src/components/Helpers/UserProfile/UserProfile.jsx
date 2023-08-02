@@ -17,7 +17,7 @@ const UserProfile = () => {
 
   return (
     <ProfileLayout>
-      <section className="profile-section ">
+      <section className="profile-section">
         <div className='info-section'>
           <ProfileInfo />
         </div>

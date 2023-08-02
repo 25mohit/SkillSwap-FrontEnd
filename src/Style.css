@@ -8,10 +8,11 @@
         /* background-color: orange; */
 }
 .navbar{
-        border-bottom: 1px solid #c3c3c3;
+        /* border-bottom: 1px solid #c3c3c3; */
         height: var(--navbar-height);
         /* width: 100vw; */
         background-color: var(--navbar-color);
+        box-shadow: 0 1px 15px #455db587;
         position: fixed;
         width: 100%;
         left: 0;
@@ -29,6 +30,14 @@
 .navbar .link-group{
         gap: 1rem;
         display: flex;
+}
+.footer{
+        display: flex;
+        align-items: center;
+        margin-top: 0.7rem;
+        /* background-color: red; */
+        justify-content: center;
+        height: 2.5rem;
 }
 .mobile{
         display: none;
@@ -411,7 +420,7 @@
         transform: translateX(0);
 }
 .profile-section{
-        height: 100%;
+        /* min-height: 100%; */
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
