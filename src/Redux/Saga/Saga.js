@@ -55,7 +55,6 @@ function* fetchSkillsList(){
         return errMsg
     })
     if(skillsData){
-        console.log("skillsData", skillsData);
         if(skillsData?.status){
             yield put(SaveAllSkills(skillsData?.skills))
         }
@@ -63,7 +62,6 @@ function* fetchSkillsList(){
 }
 
 function* fetchSingleSkill(skillUUID){
-    console.log("skillUUID", skillUUID)
     const singleSkill = yield axios.post(`${API}/skill/my-single-skill`, skillUUID.payload, config())
     .then((res) => {
         const response = res.data
@@ -74,7 +72,6 @@ function* fetchSingleSkill(skillUUID){
         return errMsg
     })
     if(singleSkill){
-        console.log("singleSkill", singleSkill);
         if(singleSkill?.status){
             yield put(SaveSingleSkill(singleSkill))
         }
@@ -89,18 +86,15 @@ function* createSkillReq(skillData){
     })
     .catch((err) => {
         const errMsg = err?.response?.data;
-        console.log("errMsg", errMsg);
         return errMsg
     })
     if(createSkill){
         yield put(NotificationHandler({status: true, message:createSkill?.message, type: 'danger'}))
         yield put(SaveAPIResponse(createSkill))
-        console.log("createSkill", createSkill);
     }
 }
 
 function* updateSkillReq(skillData){
-    console.log("skillData", skillData);
     const updateSkill = yield axios.patch(`${API}/skill/update/${skillData.payload.uuid}`, skillData.payload.data,  config())
     .then((res) => {
         const response = res.data
@@ -111,14 +105,12 @@ function* updateSkillReq(skillData){
         return errMsg
     })
     if(updateSkill){
-        console.log("updateSkill", updateSkill);
         yield put(NotificationHandler({status: true, message:updateSkill?.message}))
         yield put(SaveAPIResponse(updateSkill))
     }
 }
 
 function* getUserPublicProfileFetch(publicProfile){
-    // console.log("publicProfile", publicProfile);
     const publicProfileRes = yield axios.post(`${API}/user/public-profile/${publicProfile.payload}`,{})
     .then((res) => {
         const response = res.data
@@ -129,7 +121,6 @@ function* getUserPublicProfileFetch(publicProfile){
         return errMsg
     })
     if(publicProfileRes){
-        console.log("publicProfileRes", publicProfileRes);
         yield put(SavePublicProfile(publicProfileRes))
     }
 }
@@ -145,7 +136,6 @@ function* getPersonalProfile(){
         return errMsg
     })
     if(profileRes){
-        console.log("profileRes", profileRes);
         yield put(SaveProfile(profileRes))
     }
 }
@@ -161,14 +151,12 @@ function* updateProfile(userData){
         return errMsg
     })
     if(profileRes){
-        console.log("profileRes", profileRes);
         yield put(NotificationHandler({status: true, message:profileRes?.message}))
         yield put(SaveAPIResponse(profileRes))
     }
 }
 
 function* getNotification(){
-    console.log("configconfig", config());
     const notificationRes = yield axios.get(`${API}/user/notification`,  config())
     .then((res) => {
         const response = res.data
@@ -179,13 +167,11 @@ function* getNotification(){
         return errMsg
     })
     if(notificationRes){
-        console.log("notificationRes", notificationRes);
         yield put(SaveNotifications(notificationRes))
     }
 }
 
 function* deleteSkill(skillID){
-    console.log("configconfig", config());
     const deleteSkill = yield axios.delete(`${API}/skill/delete/${skillID.payload}`,  config())
     .then((res) => {
         const response = res.data
@@ -196,14 +182,12 @@ function* deleteSkill(skillID){
         return errMsg
     })
     if(deleteSkill){
-        console.log("deleteSkill", deleteSkill);
         yield put(NotificationHandler({status: true, message:deleteSkill?.message}))
         yield put(SaveAPIResponse(deleteSkill))
     }
 }
 
 function* allSkillsPaginateReq(filterData){
-    console.log("filterData", filterData);
     const allSkills = yield axios.post(`${API}/skill/get-all-skills`, filterData.payload ,  config())
     .then((res) => {
         const response = res.data
@@ -214,13 +198,11 @@ function* allSkillsPaginateReq(filterData){
         return errMsg
     })
     if(allSkills){
-        console.log("allSkills", allSkills);
         yield put(SaveAllPaginateSkills(allSkills))
     }
 }
 
 function* uploadUserMedia(mediaData){
-    console.log("mediaData", mediaData.media.file);
     const uploadMedia = yield axios.post(`${API}/upload/I`, mediaData.media.file ,  config())
     .then((res) => {
         const response = res.data
@@ -230,10 +212,8 @@ function* uploadUserMedia(mediaData){
         const errMsg = err.message;
         return errMsg
     })
-    if(uploadMedia){
-        console.log("uploadMedia", uploadMedia);
-        // yield put(SaveAPIResponse(uploadMedia))
-    }
+    // if(uploadMedia){
+    // }
 }
 
 function* getAllBookmarks(){
@@ -247,7 +227,6 @@ function* getAllBookmarks(){
         return errMsg
     })
     if(bookmarksRes){
-        console.log("bookmarksRes", bookmarksRes);
         yield put(SaveBookmarks(bookmarksRes?.result))
     }
 }
@@ -263,7 +242,6 @@ function* removeBookmark(bookmarkID){
         return errMsg
     })
     if(bookmarkDeleteRes){           
-        console.log("bookmarkDeleteRes", bookmarkDeleteRes);
         yield put(NotificationHandler({status: true, message:bookmarkDeleteRes?.message, type: "danger"}))
     }
 }
@@ -280,9 +258,7 @@ function* addNewBookmark(data){
         return errMsg
     })
     if(addBookmarkRes){           
-        console.log("addBookmarkRes", addBookmarkRes);
         yield put(NotificationHandler({status: true, message:addBookmarkRes?.message}))
-        // yield put(getAllBookmarks())
     }
 }
 
