@@ -80,7 +80,7 @@ const LoginForm = () => {
   useEffect(() => {
     /* global google */
     google.accounts.id.initialize({
-      client_id: "163904227095-5o4bsoh2spr6bd3kppvguifcru196d0e.apps.googleusercontent.com",
+      client_id: "54730669226-3nl54q7h3ko8uumnsd8gg5navttt9s4k.apps.googleusercontent.com",
       callback: handleCallbackResponse
     })
 
