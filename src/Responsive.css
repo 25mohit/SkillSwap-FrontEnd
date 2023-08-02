@@ -101,10 +101,9 @@
         width: 100%;
     }
     
-    /* .single-skill .container .row span{
-        display: none;
-    } */
-   
+    .home .container .feed-section{
+        padding: 1rem 0.2rem;
+    }
     .single-skill .container .row > div{
         background-color: orange;
         display: none;
