@@ -3,7 +3,9 @@ import ProfileLayout from '../../Layouts/ProfileLayout/ProfileLayout'
 import ProfileInfo from './ProfileInfo'
 import ProfileSkills from './ProfileSkills'
 import { useDispatch, useSelector } from 'react-redux'
-import { GetAllSkills, SaveAPIResponse } from '../../../Redux/Actions/Actions'
+import { GetAllSkills, GetProfile, SaveAPIResponse } from '../../../Redux/Actions/Actions'
+import ProfileSkillSkelton from '../../Layouts/Skelton/ProfileSkillSkelton'
+import ProfileInfoSkelton from '../../Layouts/Skelton/ProfileInfoSkelton'
 
 const UserProfile = () => {
   
@@ -11,18 +13,22 @@ const UserProfile = () => {
 
   useEffect(() => {
     dispatch(GetAllSkills())
+    dispatch(GetProfile())
   },[])
 
   const skillsList = useSelector(state => state.home.skillsList)
+  const profieData = useSelector(state => state.home.profile)
 
+  console.log("profieData", profieData);
   return (
     <ProfileLayout>
       <section className="profile-section">
         <div className='info-section'>
-          <ProfileInfo />
+          <ProfileInfoSkelton />
+          {/* <ProfileInfo profieData={profieData}/> */}
         </div>
         <div>
-          {skillsList?.length > 0 && <ProfileSkills lists={skillsList}/>}
+          {skillsList?.length > 0 ? <ProfileSkills lists={skillsList}/> : <ProfileSkillSkelton />}
         </div>
       </section>
     </ProfileLayout>

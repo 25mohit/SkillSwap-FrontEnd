@@ -8,7 +8,7 @@ import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { GetProfile, SaveAPIResponse } from '../../../Redux/Actions/Actions'
 
-const ProfileInfo = () => {
+const ProfileInfo = ({ profieData }) => {
   const [showProfileUpdate, setShowProfileUpdate] = useState(false)
   const [showUserName, setShowUserName] = useState(false)
 
@@ -16,11 +16,10 @@ const ProfileInfo = () => {
   
   const dispatch = useDispatch()
 
-  useEffect(() => {
-      dispatch(GetProfile())
-  },[])
+  // useEffect(() => {
+  //     dispatch(GetProfile())
+  // },[])
 
-  const profieData = useSelector(state => state.home.profile)
   const response = useSelector(state => state.home.APIRESPONSE)
 
   useEffect(() => {

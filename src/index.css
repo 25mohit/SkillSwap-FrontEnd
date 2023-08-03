@@ -18,6 +18,7 @@
   --primary-color: linear-gradient(92.88deg, #455EB5 9.16%, #5643CC 43.89%, #673FD7 64.72%);
   --sidebar-width: 14rem;
   --mobile-sidebar-width:5rem;
+  --skelton-background: rgba(220, 220, 220, 0.566);
 }
 ::-webkit-scrollbar{
   display: none;

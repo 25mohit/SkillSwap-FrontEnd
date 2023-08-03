@@ -994,3 +994,37 @@ color: rgb(74, 74, 74);
         box-shadow: 1px 1px 8px rgba(0,0,0,.2);
         background-color: rgba(219, 219, 219, 0.29);
 }
+
+.skill-skelton{
+        background-color: white;
+        width: 100%;
+        border-radius: 25px;
+        /* height: 11rem; */
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+        padding: 1rem 1.6rem;
+        gap: 1rem;
+}
+.skelton{
+        animation: skeltonanimation 0.5s infinite ease-in-out;
+        border-radius: 25px;
+        width: fit-content;
+        padding: 1rem;
+}
+.skill-skelton > div{
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+}
+.skill-skelton .circle{
+        width: 7rem;
+        aspect-ratio: 1/1;
+        border-radius: 50%;
+}
+@keyframes skeltonanimation {
+        0%{
+                background-color: rgba(198, 198, 198, 0.598);
+        }
+        100%{
+                background-color: var(--skelton-background);
+        }
+}
