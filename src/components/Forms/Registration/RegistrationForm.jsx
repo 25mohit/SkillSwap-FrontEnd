@@ -33,10 +33,11 @@ const RegistrationForm = () => {
   useEffect(() => {
     if(getTempToken !== undefined && getTempToken !== null){
       const responseData = JSON.parse(atob(getTempToken?.split('.')[1]))
+      console.log("responseData", responseData);
       setUserForm({
         email: responseData?.email,
         name: responseData?.name,
-        userName: `${responseData?.given_name}${responseData?.family_name}`
+        userName: `${responseData?.name?.split(' ')?.join('')}`
       })
       console.log("responseData", responseData);
     }

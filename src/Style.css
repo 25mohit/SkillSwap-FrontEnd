@@ -972,3 +972,25 @@ color: rgb(74, 74, 74);
         width: fit-content;
         position: relative;
 }
+.social-wraper{
+        display: flex;
+        gap: var(--form-gap);
+}
+.social-media-login{
+        display: flex;
+        align-items: center;
+        gap: 0.7rem;
+        width: 45%;
+        justify-content: center;
+        height: var(--form-utils-height);
+        font-size: 1.3rem;
+        border-radius: var(--form-utils-radius);
+        border: none;
+        background-color: rgba(219, 219, 219, 0.539);
+}
+.social-media-login:hover{
+        transition: 0.6s;
+        cursor: pointer;
+        box-shadow: 1px 1px 8px rgba(0,0,0,.2);
+        background-color: rgba(219, 219, 219, 0.29);
+}
