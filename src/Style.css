@@ -927,7 +927,7 @@
         display: flex;
         justify-content: center;
 }
-.terms header h1{
+.main-heading-text{
         background-image: linear-gradient(92.88deg, #673FD7 9.16%, #5643CC 43.89%, #455EB5 64.72%);
         width: fit-content;
         text-align: center;

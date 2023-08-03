@@ -11,7 +11,7 @@ const FeedSection = () => {
   useEffect(() => {
     const payload = {
       page:1,
-      limit: 4,
+      limit: 10,
       filter: "oldest",
       sort:"createdAt"
     }

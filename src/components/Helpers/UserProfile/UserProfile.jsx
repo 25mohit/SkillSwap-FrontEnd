@@ -19,7 +19,17 @@ const UserProfile = () => {
   const skillsList = useSelector(state => state.home.skillsList)
   const profieData = useSelector(state => state.home.profile)
 
-  console.log("profieData", profieData);
+  const [isData, setIsData] = useState(false)
+
+  useEffect(() => {
+    setTimeout(() => {
+      if(!skillsList?.status){
+        setIsData(true)
+      }
+    },3500)
+  },[skillsList])
+
+  console.log("isData", isData);
   return (
     <ProfileLayout>
       <section className="profile-section">
@@ -29,12 +39,19 @@ const UserProfile = () => {
           }
         </div>
         <div>
-          {skillsList?.length > 0 ? <ProfileSkills lists={skillsList}/> : 
+          {Object.keys(skillsList)?.length > 0 ? (<ProfileSkills lists={skillsList?.skills}/>) : 
             <div className='flex-column' style={{gap:'1.1rem'}}>
-            <ProfileSkillSkelton />
-            <ProfileSkillSkelton />
-            <ProfileSkillSkelton />
-          </div>}
+                {!isData ? 
+                  <>
+                    <ProfileSkillSkelton />
+                    <ProfileSkillSkelton />
+                    <ProfileSkillSkelton />
+                  </> :
+                  <h2 className='main-heading-text'>You have Not Added any Skills yet !</h2>
+                }
+            </div>
+            }
+            
         </div>
       </section>
     </ProfileLayout>

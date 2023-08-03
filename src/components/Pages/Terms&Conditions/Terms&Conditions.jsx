@@ -4,7 +4,7 @@ const TermsAndConditions = () => {
   return (
     <div className='terms flex-column'>
         <header>
-            <h1>Terms & Conditions - SkillSwap</h1>
+            <h1 className="main-heading-text">Terms & Conditions - SkillSwap</h1>
         </header>
         {
             TermsJSONData?.map((data, index) => 

@@ -87,7 +87,7 @@ function* fetchSkillsList(){
     })
     if(skillsData){
         if(skillsData?.status){
-            yield put(SaveAllSkills(skillsData?.skills))
+            yield put(SaveAllSkills(skillsData))
         }
     }
 }

@@ -36,7 +36,7 @@ const UserSkills = () => {
       </div>
       <CardLayout>
         {
-          skillsList?.map((skill, index) => <SkillDetailRow key={index} heading={skill?.skillName} skills={skill} fullControl={true}/>)
+          skillsList?.skills?.map((skill, index) => <SkillDetailRow key={index} heading={skill?.skillName} skills={skill} fullControl={true}/>)
         }
       </CardLayout>
     </ProfileLayout>
