@@ -24,7 +24,12 @@ const FeedSection = () => {
     <div className='feed-section'>
       <div className="in-container flex-column">
         {
-          skillsList?.length > 0 ? skillsList?.map((skill, index) => <SingleSkill key={index} skill={skill?.skill} user={skill?.user}/>) : <ProfileSkillSkelton />
+          skillsList?.length > 0 ? skillsList?.map((skill, index) => <SingleSkill key={index} skill={skill?.skill} user={skill?.user}/>) : 
+            <div className='flex-column' style={{gap:'1.1rem'}}>
+              <ProfileSkillSkelton />
+              <ProfileSkillSkelton />
+              <ProfileSkillSkelton />
+            </div>
         }
       </div>
       <Footer />

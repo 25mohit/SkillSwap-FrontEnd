@@ -29,7 +29,12 @@ const UserProfile = () => {
           }
         </div>
         <div>
-          {skillsList?.length > 0 ? <ProfileSkills lists={skillsList}/> : <ProfileSkillSkelton />}
+          {skillsList?.length > 0 ? <ProfileSkills lists={skillsList}/> : 
+            <div className='flex-column' style={{gap:'1.1rem'}}>
+            <ProfileSkillSkelton />
+            <ProfileSkillSkelton />
+            <ProfileSkillSkelton />
+          </div>}
         </div>
       </section>
     </ProfileLayout>
