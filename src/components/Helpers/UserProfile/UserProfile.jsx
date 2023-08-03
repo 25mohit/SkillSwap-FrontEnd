@@ -24,8 +24,9 @@ const UserProfile = () => {
     <ProfileLayout>
       <section className="profile-section">
         <div className='info-section'>
-          <ProfileInfoSkelton />
-          {/* <ProfileInfo profieData={profieData}/> */}
+          {
+            Object.keys(profieData)?.length > 0 ? <ProfileInfo profieData={profieData}/> : <ProfileInfoSkelton />
+          }
         </div>
         <div>
           {skillsList?.length > 0 ? <ProfileSkills lists={skillsList}/> : <ProfileSkillSkelton />}
