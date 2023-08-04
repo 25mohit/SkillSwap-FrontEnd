@@ -20,6 +20,7 @@ const SingleSkill = ({ user, skill}) => {
         dispatch(AddBookmark({skillId: id}))
     }
     
+    console.log(user?.socialMedia);
   return (
     <div className='single-skill'>
         <BsFillBookmarkHeartFill id='book' onClick={() => onAddBookmarkHandler(skill?._id)}/>
@@ -38,9 +39,9 @@ const SingleSkill = ({ user, skill}) => {
                     <span id='dot'>Listed on {moment(skill?.createdAt).format('LL')}</span>
                     <PiDotOutlineDuotone id='dot'/>
                     <div >
-                        <Link to={user?.socialMedia?.instagram} target='_blank'><BsInstagram /></Link>
-                        <Link to={user?.socialMedia?.github} target='_blank'><BsGithub /></Link>
-                        <Link to={user?.socialMedia?.website} target='_blank'><BsGlobe /></Link>
+                        {user?.socialMedia?.instagram !== null && <Link to={user?.socialMedia?.instagram} target='_blank'><BsInstagram /></Link>}
+                        {user?.socialMedia?.github !== null && <Link to={user?.socialMedia?.github} target='_blank'><BsGithub /></Link>}
+                        {user?.socialMedia?.website !== null && <Link to={user?.socialMedia?.website} target='_blank'><BsGlobe /></Link>}
                     </div>
                 </div>
                 <div className="row-2">
