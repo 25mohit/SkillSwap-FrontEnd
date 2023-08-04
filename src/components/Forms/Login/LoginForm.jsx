@@ -51,6 +51,8 @@ const LoginForm = () => {
     }
   },[notificationState])
 
+  console.log("notificationState", notificationState);
+
   const onLoginHandler = (e) => {
     e.preventDefault()
     onValidate()
