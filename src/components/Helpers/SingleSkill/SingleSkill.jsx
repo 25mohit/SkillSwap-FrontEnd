@@ -20,7 +20,6 @@ const SingleSkill = ({ user, skill}) => {
         dispatch(AddBookmark({skillId: id}))
     }
     
-    console.log(user?.socialMedia);
   return (
     <div className='single-skill'>
         <BsFillBookmarkHeartFill id='book' onClick={() => onAddBookmarkHandler(skill?._id)}/>
@@ -32,8 +31,6 @@ const SingleSkill = ({ user, skill}) => {
                 <div className="row">
                     <Link className="name" to={`/u/@${user?.uName}`}>{user?.userName}</Link>
                     <PiDotOutlineDuotone id='dot'/>
-                    {/* <span>5 skills</span>
-                    <PiDotOutlineDuotone id='dot'/> */}
                     <span id='dot'>since {moment(user?.userCreatedOn).format('LL')}</span>
                     <PiDotOutlineDuotone id='dot'/>
                     <span id='dot'>Listed on {moment(skill?.createdAt).format('LL')}</span>

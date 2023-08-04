@@ -26,6 +26,7 @@ const Navbar = ({ onChange, toogle }) => {
         </Link>
       </div>
       <div className="link-group">
+        Hi, {localStorage.getItem('user-name')?.split(' ')?.[0]}
         <span  id='notification-icon' ><BsFillBellFill onMouseEnter={() => setShowNotification(true)} onMouseLeave={() => setShowNotification(false)} />
           <NotificationDropDown showNotification={showNotification} setShowNotification={setShowNotification}/>
         </span>          

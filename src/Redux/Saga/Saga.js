@@ -38,10 +38,10 @@ function* loginUserSaga(userData){
         return errMsg
     })
     if(loginData){
-        console.log("loginData", loginData);
         if(loginData?.status){
             yield put(NotificationHandler({status: true, message:loginData?.message}))
             localStorage.setItem('loggedIn', true)
+            localStorage.setItem('user-name', JSON.parse(atob(loginData?.token?.split('.')[1]))?.name)
             localStorage.setItem('token', loginData?.token)
             localStorage.removeItem('temp-token')
         } else {

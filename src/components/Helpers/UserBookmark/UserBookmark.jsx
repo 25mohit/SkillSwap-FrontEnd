@@ -31,7 +31,7 @@ const UserBookmark = () => {
           {
             bookmarkList?.length > 0 ? bookmarkList?.map((book, ind) =>  <SkillDetailRow bookFunction={removeBookmark} key={ind} heading={book?.skillName} skills={book} type="bookmark"/>) : 
               <div>
-                <h2>You have not Bookmarked any skill YET !</h2>
+                <h2 className='main-heading-text'>You have not Bookmarked any skill YET !</h2>
               </div>
           }
         </CardLayout>
