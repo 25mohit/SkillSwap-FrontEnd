@@ -9,6 +9,7 @@ import ProfileInfoSkelton from '../../Layouts/Skelton/ProfileInfoSkelton'
 
 const UserProfile = () => {
   
+
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -18,6 +19,10 @@ const UserProfile = () => {
 
   const skillsList = useSelector(state => state.home.skillsList)
   const profieData = useSelector(state => state.home.profile)
+
+  document.title = `SkillSwap | ${profieData?.data?.name}'s Profile`
+
+  console.log("profieData", profieData);
 
   const [isData, setIsData] = useState(false)
 

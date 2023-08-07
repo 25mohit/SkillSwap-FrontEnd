@@ -7,6 +7,7 @@ import SkillDetailRow from '../UserProfile/SkillDetailRow'
 import ProfileSkillSkelton from '../../Layouts/Skelton/ProfileSkillSkelton'
 
 const UserBookmark = () => {
+  document.title = "SkillSwap | Bookmarks"
   const dispatch = useDispatch()
   const [emptyResponse, setEmptyResponse] = useState(false)
 

@@ -4,6 +4,8 @@ import Sidebar from "../../Common/Sidebar/Sidebar"
 import FeedSection from '../../Common/FeedSection/FeedSection'
 
 const Home = () => {
+  document.title = "SkillSwap"
+  
   return (
     <AuthWraper>
       <Main>
