@@ -33,9 +33,9 @@ const AddSkill = () => {
         skillDescription:"",
         skillTechnologies:"",
     })
-    const [priceTerm, setPriceTerm] = useState({})
-    const [skillLevel, setSkillLevel] = useState({})
-    const [skillVisibility, setSkillVisibility] = useState({})
+    const [priceTerm, setPriceTerm] = useState('')
+    const [skillLevel, setSkillLevel] = useState('')
+    const [skillVisibility, setSkillVisibility] = useState('ṭ')
     const [isEdit, setIsEdit] = useState(false)
     const [isLoading, setIsLoading] = useState(false)
     const [showDeleteModal, setShowDeleteModal] = useState(false)
@@ -137,6 +137,9 @@ const AddSkill = () => {
         setShowDeleteModal(true)
         setSkillId(actionMode.split('--')?.[1])
     }
+
+    console.log("priceTerm",priceTerm);
+    
   return (
         <ProfileLayout>
             <DeleteModal skillId={skillId} showDelete={showDeleteModal} onHide={setShowDeleteModal}/>

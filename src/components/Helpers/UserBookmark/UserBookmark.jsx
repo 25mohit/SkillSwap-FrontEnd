@@ -4,9 +4,11 @@ import { GetBookmarks, RemoveBookmark } from '../../../Redux/Actions/Actions'
 import { useDispatch, useSelector } from 'react-redux'
 import CardLayout from '../../Layouts/CardLayout/CardLayout'
 import SkillDetailRow from '../UserProfile/SkillDetailRow'
+import ProfileSkillSkelton from '../../Layouts/Skelton/ProfileSkillSkelton'
 
 const UserBookmark = () => {
   const dispatch = useDispatch()
+  const [emptyResponse, setEmptyResponse] = useState(false)
 
   useEffect(() => {
     dispatch(GetBookmarks())
@@ -20,6 +22,15 @@ const UserBookmark = () => {
       dispatch(GetBookmarks())
     },1000)
   }
+
+  useEffect(() => {
+    setTimeout(() => {
+      if(bookmarkList?.length < 1){
+        setEmptyResponse(true)
+      }
+    },2500)
+  },[])
+
   return (
     <ProfileLayout>
         <div className="skill-control-header flex-between">
@@ -30,9 +41,14 @@ const UserBookmark = () => {
         <CardLayout>
           {
             bookmarkList?.length > 0 ? bookmarkList?.map((book, ind) =>  <SkillDetailRow bookFunction={removeBookmark} key={ind} heading={book?.skillName} skills={book} type="bookmark"/>) : 
-              <div>
-                <h2 className='main-heading-text'>You have not Bookmarked any skill YET !</h2>
-              </div>
+              !emptyResponse ? <div className='flex-column' style={{gap:"1.1rem"}}>
+                <ProfileSkillSkelton />
+                <ProfileSkillSkelton />
+                <ProfileSkillSkelton />
+                <ProfileSkillSkelton />
+                <ProfileSkillSkelton />
+              </div> :
+            <h2 className='main-heading-text'>You have not Bookmarked any skill YET !</h2>
           }
         </CardLayout>
     </ProfileLayout>

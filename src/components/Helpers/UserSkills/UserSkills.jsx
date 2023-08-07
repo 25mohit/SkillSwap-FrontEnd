@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom"
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { GetAllSkills, SaveAPIResponse, SaveSingleSkill } from '../../../Redux/Actions/Actions'
+import ProfileSkillSkelton from '../../Layouts/Skelton/ProfileSkillSkelton'
 
 const UserSkills = () => {
 
@@ -24,6 +25,7 @@ const UserSkills = () => {
 
   const skillsList = useSelector(state => state.home.skillsList)
 
+  console.log("skillsList", skillsList);
   return (
     <ProfileLayout>
       <div className="skill-control-header flex-between">
@@ -36,6 +38,17 @@ const UserSkills = () => {
       </div>
       <CardLayout>
         {
+          skillsList?.length < 1 ? 
+          <div className='flex-column' style={{gap:'1.1rem'}}>
+            <ProfileSkillSkelton />
+            <ProfileSkillSkelton />
+            <ProfileSkillSkelton />
+            <ProfileSkillSkelton />
+            <ProfileSkillSkelton />
+            <ProfileSkillSkelton />
+            <ProfileSkillSkelton />
+            <ProfileSkillSkelton />
+          </div> :
           skillsList?.skills?.map((skill, index) => <SkillDetailRow key={index} heading={skill?.skillName} skills={skill} fullControl={true}/>)
         }
       </CardLayout>
