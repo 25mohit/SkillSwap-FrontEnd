@@ -22,8 +22,6 @@ const UserProfile = () => {
 
   document.title = `SkillSwap | ${profieData?.data?.name}'s Profile`
 
-  console.log("profieData", profieData);
-
   const [isData, setIsData] = useState(false)
 
   useEffect(() => {

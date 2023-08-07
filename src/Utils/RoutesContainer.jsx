@@ -1,18 +1,6 @@
 import { Route, Routes } from "react-router-dom"
-// import Landing from '../components/Pages/Landing/Landing'
-// import Home from '../components/Pages/Home/Home'
-// import Login from "../components/Pages/Login/Login"
-// import Registration from "../components/Pages/Registration/Registration"
-// import Profile from "../components/Pages/Profile/Profile"
-// import AddSkill from "../components/Pages/AddSkill/AddSkill"
-// import UserProfile from "../components/Helpers/UserProfile/UserProfile"
-// import UserSkills from "../components/Helpers/UserSkills/UserSkills"
-// import PublicProfile from "../components/Pages/PublicProfile/PublicProfile"
 import UserRequests from "../components/Helpers/UserRequests/UserRequests"
-// import UserBookmark from "../components/Helpers/UserBookmark/UserBookmark"
-// import SkillDetail from "../components/Pages/SkillDetail"
 import { Suspense, lazy } from "react"
-// import PublicProfileV2 from "../components/Pages/PublicProfileV2/PublicProfileV2"
 import Loading from "./Component/Loading/Loading"
 
 const RoutesContainer = () => {

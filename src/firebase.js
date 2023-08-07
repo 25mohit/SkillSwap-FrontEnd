@@ -39,7 +39,6 @@ export const signInWithFacebook = ({ setGetLoginData }) => {
 
 export const signInWithGithub = ({ setGetLoginData }) => {
     signInWithPopup(auth, provider3).then((result) => {
-        console.log("resultfromauth", result);
         setGetLoginData(result?.user)
       return result?.user
     }).catch(err => {

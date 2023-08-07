@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import Form from '../../Layouts/Form/Form'
 import Input from '../../../Utils/Component/Form/Input'
 import Select from '../../../Utils/Component/Form/Select'
@@ -137,8 +137,6 @@ const AddSkill = () => {
         setShowDeleteModal(true)
         setSkillId(actionMode.split('--')?.[1])
     }
-
-    console.log("priceTerm",priceTerm);
     
   return (
         <ProfileLayout>
