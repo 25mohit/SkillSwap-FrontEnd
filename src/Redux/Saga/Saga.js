@@ -33,8 +33,6 @@ function* loginUserSaga(userData){
     })
     .catch((err) => {
         const errMsg = err.response?.data;
-        // console.log("errMsg", errMsg, err);
-        // NotificationHandler({status: true, message:errMsg?.message, type:"danger"})
         return errMsg
     })
     if(loginData){
@@ -61,7 +59,6 @@ function* registerUserSaga(userData){
         return errMsg
     })
     if(registerData){
-        console.log("registerData", registerData);
         if(registerData?.status){
             localStorage.removeItem('temp-token')
             yield put(NotificationHandler({status: true, message:registerData?.message}))

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 
-const Select = ({options, onChange, value, placeholder}) => {
+const Select = ({options, onChange, value, placeholder, error, onSelectChange}) => {
 
     const [isSelected, setIsSelected] = useState(false)
     const [highlightedInd, setHighlightedInd] = useState(-1)
@@ -23,16 +23,17 @@ const Select = ({options, onChange, value, placeholder}) => {
     const onChangeHandler = (value, ind) => {
         onChange(value)
         setHighlightedInd(ind)
+        onSelectChange()
     }
 
     const onPlaceholderClick = () => {
         onChange('')
     }
 
-
     useEffect(() => {
         
         const handler = e => {
+            onSelectChange()
             if(e.target != keyRef.current) return 
             switch(e.code){
                 case "Enter":
@@ -94,7 +95,7 @@ const Select = ({options, onChange, value, placeholder}) => {
     },[isSelected])
 
   return (
-    <div ref={keyRef} onBlur={onBlurHandler} tabIndex={0} className='select-wraper' onClick={onSelect}>
+    <div ref={keyRef} onBlur={onBlurHandler} tabIndex={0} className={`select-wraper ${error ? 'error':''}`} onClick={onSelect}>
         <div className="select" name='customSelect'>{value?.label}</div>
         <label className={`select-label ${calculateSelected() ? 'selected' : ''}`} htmlFor="customSelect">{placeholder}</label>
         <div ref={modalRef} className={`options ${isSelected ? 'selected' : ''}`} style={customPOsition}>

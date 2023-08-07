@@ -28,7 +28,11 @@ const options = {
 
 const AddSkill = () => {
 
-    const [skillForm, setSkillForm] = useState({})
+    const [skillForm, setSkillForm] = useState({
+        skillName:"",
+        skillDescription:"",
+        skillTechnologies:"",
+    })
     const [priceTerm, setPriceTerm] = useState({})
     const [skillLevel, setSkillLevel] = useState({})
     const [skillVisibility, setSkillVisibility] = useState({})
@@ -36,7 +40,7 @@ const AddSkill = () => {
     const [isLoading, setIsLoading] = useState(false)
     const [showDeleteModal, setShowDeleteModal] = useState(false)
     const [skillId, setSkillId] = useState('')
-
+    const [errors, setErrors] = useState({})
 
     const {actionMode} = useParams()
     const dispatch = useDispatch()
@@ -64,7 +68,6 @@ const AddSkill = () => {
     useEffect(() => {
         if(isEdit){
             dispatch(GetSingleSkill({uuid:actionMode.split('--')?.[1]}))
-                
         }
     },[isEdit])
 
@@ -77,8 +80,37 @@ const AddSkill = () => {
         }
     },[editData])
 
+    const onValidate = () => {
+        setErrors(() => {
+            let err = {}
+            if(!skillForm?.skillName){
+                err.skillName = true
+            }
+            if(!skillForm?.skillDescription){
+                err.skillDescription = true
+            }
+            if(!priceTerm?.value){
+                err.priceTerm = true
+            }
+            if(!skillLevel?.value){
+                err.skillLevel = true
+            }
+            if(!skillVisibility?.value){
+                err.skillVisibility = true
+            }
+            if(!skillForm?.skillTechnologies){
+                err.skillTechnologies = true
+            }
+            return err
+        })
+    }
+
     const onSubmitHandler = e =>{
         e.preventDefault()
+        onValidate()
+        if(skillForm?.skillName === '' || skillForm?.skillDescription === '' || priceTerm === '' || skillLevel === '' || skillVisibility === '' || skillForm?.skillTechnologies === ''){
+            return false
+        }
         setIsLoading(true)
         if(isEdit){
             const payload = {
@@ -109,23 +141,23 @@ const AddSkill = () => {
         <ProfileLayout>
             <DeleteModal skillId={skillId} showDelete={showDeleteModal} onHide={setShowDeleteModal}/>
             <Form width="100%" heading={`${isEdit ? 'Edit' : 'Add New'} Skill`} onBack={onBack}>
-                <Input onChange={onChangeHandler} name="skillName" value={skillForm?.skillName} type="text" placeholder="Enter your skill name"/>
-                <Input onChange={onChangeHandler} name="skillDescription" value={skillForm?.skillDescription} type="text" placeholder="Enter skill description"/>
+                <Input error={errors?.skillName} onInput={() => setErrors({...errors, skillName: false})} onChange={onChangeHandler} name="skillName" value={skillForm?.skillName} type="text" placeholder="Enter your skill name"/>
+                <Input error={errors?.skillDescription} onInput={() => setErrors({...errors, skillDescription: false})} onChange={onChangeHandler} name="skillDescription" value={skillForm?.skillDescription} type="text" placeholder="Enter skill description"/>
                 <div className="flex-row">
                     <div className="div">
-                        <Select onChange={setPriceTerm} name="priceTerm" value={priceTerm} options={options.skillPrice} placeholder="Skill price term" />
+                        <Select error={errors?.priceTerm} onSelectChange={() => setErrors({...errors, priceTerm: false})} onChange={setPriceTerm} name="priceTerm" value={priceTerm} options={options.skillPrice} placeholder="Skill price term" />
                     </div>
                     <div className="div">
-                        <Select onChange={setSkillLevel} name="skillLevel" value={skillLevel} options={options.skillLevel} placeholder="Select skill level" />
+                        <Select error={errors?.skillLevel} onSelectChange={() => setErrors({...errors, skillLevel: false})} onChange={setSkillLevel} name="skillLevel" value={skillLevel} options={options.skillLevel} placeholder="Select skill level" />
                     </div>
                 </div>
                 <div className="flex-row">
                     <div className="div">
-                        <Select onChange={setSkillVisibility} name="skillVisibility" value={skillVisibility} options={options.skillVisiblity} placeholder="Skill Visiblity" />
+                        <Select error={errors?.skillVisibility} onSelectChange={() => setErrors({...errors, skillVisibility: false})} onChange={setSkillVisibility} name="skillVisibility" value={skillVisibility} options={options.skillVisiblity} placeholder="Skill Visiblity" />
                     </div>
                     <div className="div empty"></div>
                 </div>
-                <Input onChange={onChangeHandler} name="skillTechnologies" value={skillForm?.skillTechnologies} type="text" placeholder="Enter skill technologies or services you known, releated with your skill. Seperate with comma ( , )"/>
+                <Input error={errors?.skillTechnologies} onInput={() => setErrors({...errors, skillTechnologies: false})} onChange={onChangeHandler} name="skillTechnologies" value={skillForm?.skillTechnologies} type="text" placeholder="Enter skill technologies or services you known, releated with your skill. Seperate with comma ( , )"/>
                 {isEdit ? <div className="flex-row">
                     <div className="div">
                         {addEditButton()}

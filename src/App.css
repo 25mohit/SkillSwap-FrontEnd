@@ -144,6 +144,12 @@
   pointer-events: none;
   transition: all 0.2s ease;
 }
+.select-wraper.error{
+  border-color: red;
+}
+.select-wraper.error .select-label{
+  color: red;
+}
 .select-wraper .options {
   position: absolute;
   top: calc(2px + var(--form-utils-height));

@@ -51,8 +51,6 @@ const LoginForm = () => {
     }
   },[notificationState])
 
-  console.log("notificationState", notificationState);
-
   const onLoginHandler = (e) => {
     e.preventDefault()
     onValidate()
@@ -68,36 +66,6 @@ const LoginForm = () => {
       dispatch(LoginUser(payload))
     }
   }
-
-  // const handleCallbackResponse = (response) => {
-    
-  //   console.log("responseresponse", response);
-  //   localStorage.setItem('temp-token', response?.credential)
-  //   const responseData = JSON.parse(atob(response?.credential?.split('.')[1]))
-
-  //   if(responseData && Object.keys(responseData).length > 0 && responseData?.email !== undefined && responseData?.email !== '') {
-  //     const payload = {
-  //       email: responseData?.email,
-  //       loginBy: 'google'
-  //     }
-  //     dispatch(LoginUser(payload))
-  //   }
-  //   console.log("responseData", responseData);
-
-  // }
-
-  // useEffect(() => {
-  //   /* global google */
-  //   google.accounts.id.initialize({
-  //     client_id: "54730669226-3nl54q7h3ko8uumnsd8gg5navttt9s4k.apps.googleusercontent.com",
-  //     callback: handleCallbackResponse
-  //   })
-
-  //   google.accounts.id.renderButton(
-  //     document.getElementById("signInDiv"),
-  //     { theme:"outline", size:"large"}
-  //   )
-  // },[])
 
   const [getLoginData, setGetLoginData] = useState({})
 
@@ -125,7 +93,7 @@ const LoginForm = () => {
     e.preventDefault()
     signInWithGithub({setGetLoginData})
   }
-  console.log("getLoginData", getLoginData);
+
   return (
     <Form heading="Login">
         <Input required={false} onChange={onChangeHandler} onInput={() => setErrors({...errors, email:false})} value={userForm.email} error={errors.email} type="text" placeholder="Enter your email" name="email"/>

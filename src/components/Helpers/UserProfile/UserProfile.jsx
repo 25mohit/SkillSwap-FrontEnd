@@ -29,7 +29,6 @@ const UserProfile = () => {
     },3500)
   },[skillsList])
 
-  console.log("isData", isData);
   return (
     <ProfileLayout>
       <section className="profile-section">
