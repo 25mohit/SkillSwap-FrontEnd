@@ -23,6 +23,11 @@
   justify-content: space-between;
   gap: var(--form-gap);
 }
+.flex-reverse{
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+}
 .flex-row .div{
   width: 50%;
 }

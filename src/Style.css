@@ -3,10 +3,6 @@
         margin-top: calc(16px + var(--navbar-height)) ;
         /* height: calc(100% - var(--navbar-height)); */
 }
-.landing-page{
-        padding: 0 3rem;
-        /* background-color: orange; */
-}
 .navbar{
         /* border-bottom: 1px solid #c3c3c3; */
         height: var(--navbar-height);
@@ -116,19 +112,6 @@
 }  
 .single-notification .content p{
         font-size: 0.9rem;
-}
-.hero-layout{
-        width: 100%;
-        height: calc(95vh - var(--navbar-height));
-}
-.hero-layout .content{
-        width: 60%;
-        text-align: left;
-        gap: 2rem;
-}
-.hero-layout .action-btn{
-        width: 40%;
-        justify-content: center;
 }
 .form{
         display: flex;
@@ -1027,4 +1010,68 @@ color: rgb(74, 74, 74);
         100%{
                 background-color: var(--skelton-background);
         }
+}
+.home-section{
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100vh;
+        gap: 2rem;
+}
+#section2{
+        background-image: linear-gradient(to right, #fefefe, #637c7ca9);
+}
+#section4{
+        background-image: linear-gradient(to right, #fefefe, #637c7ca9);
+}
+.main-heading{
+        font-size: 6vh;
+        font-weight: normal;
+}
+.hero-layout{
+        scroll-behavior: smooth;
+}
+.hero-layout #scroll-btn{
+        position: fixed;
+        z-index: 15;
+        bottom: 2rem;
+        right: 3rem;
+        font-size: 2rem;
+        color: #0000004c;
+}
+.hero-layout #scroll-btn2{
+        position: fixed;
+        z-index: 15;
+        bottom: 2rem;
+        right: 6rem;
+        font-size: 2rem;
+        color: #0000004c;
+}
+.hero-layout #scroll-btn2:hover, .hero-layout #scroll-btn:hover{
+        color: #36363697;
+        cursor: pointer;
+        transition: 0.6s;
+}
+.hero-layout .img img{
+        border-radius: 15px;
+        box-shadow: 10px 10px 15px rgba(20,20,20,0.2);
+        width: 100%;
+}
+.hero-layout .img{
+        padding: 0 4rem;
+}
+.hero-layout .content{
+        text-align: left;
+        padding: 0 2rem;
+}
+.flex-reverse .content{
+        text-align: left;
+        padding-left: 4vw !important;
+}
+.center{
+        width: 40%;
+}
+.flex-content{
+        display: flex;
+        align-items: center;
 }
