@@ -93,7 +93,7 @@
         background-image: var(--primary-color);
         transition: 0.5s;
 }
-.single-notification:hover .content, .single-notification:hover .content span{
+.single-notification:hover .content, .single-notification:hover .content span, .single-notification:hover .content .h4-head{
         color: white;
 }
 .single-notification img{
@@ -106,9 +106,30 @@
         color: rgba(30,30,30,0.8);
         width: 100%;
 }
-.single-notification .content span{
+.single-notification .content .asdasdadad{
+        width: 100%;
+        display: flex;
+        align-items: start;
+        /* flex-direction: column; */
+        text-align: left;
+}
+.single-notification .content .h4-head {
+        
+        color: #515151;
+}
+.single-notification .content .h4-head b{
+        margin-left: 0.3rem;
+}
+.single-notification .content .asdasdadad > span{
         color: gray;
+        /* width: 100%; */
+        text-align: left;
+        white-space: nowrap;
         font-size: 0.9rem;
+        background-image: var(--primary-color);
+        color: white;
+        border-radius: 5px;
+        padding: 0 0.4rem;
 }  
 .single-notification .content p{
         font-size: 0.9rem;
@@ -210,7 +231,11 @@
 .home .container .feed-section{
         width: calc(100% - var(--sidebar-width));
         max-height: 92vh;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
         padding: 1rem;
+        min-height: calc(98vh - var(--navbar-height));
         overflow: auto;
 }
 .home .container .feed-section .in-container{
@@ -821,6 +846,43 @@
         padding: 0.2rem 0.7rem;
         border-radius: 6px;
         color: white;
+        position: relative;
+}
+.single-skill .row .link .skill-send-list{
+        position: absolute;
+        background-image: var(--primary-color);
+        top: 2rem;
+        left: 0;
+        padding: 0.6rem 0.8rem;
+        box-shadow: 5px 5px 15px rgba(10,10,10,0.6);
+        border-radius: 5px;
+        width: 18rem;
+        max-width: 20rem;
+        height: fit-content;
+        gap: 0.5rem;
+        max-height: 10rem;
+        overflow: auto;
+}
+.single-skill .row .link .skill-send-list > span{
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        padding-bottom: 0.4rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.546);
+        justify-content: space-between;
+}
+.small-btn{
+        background-color: white;
+        padding: 0.1rem 0.4rem;
+        border-radius: 5px;
+        border: none;
+        font-weight: 400;
+}
+.small-btn:hover{
+        cursor: pointer;
+        background-image: var(--primary-color);
+        color: white;
+        transition: 0.5s;
 }
 .skilldetail{
         text-align: left;

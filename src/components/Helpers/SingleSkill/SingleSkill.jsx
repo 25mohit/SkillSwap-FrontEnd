@@ -1,9 +1,10 @@
 import moment from 'moment'
 import { BsFillBookmarkHeartFill, BsGithub, BsGlobe, BsInstagram } from 'react-icons/bs'
 import { PiDotOutlineDuotone } from 'react-icons/pi'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
-import { AddBookmark } from '../../../Redux/Actions/Actions'
+import { AddBookmark, GetAllSkills, SendSkillRequest } from '../../../Redux/Actions/Actions'
+import { useEffect, useRef, useState } from 'react'
 
 const SingleSkill = ({ user, skill}) => {
     
@@ -11,6 +12,8 @@ const SingleSkill = ({ user, skill}) => {
 
     const naviagte = useNavigate()
     const dispatch = useDispatch()
+    const [sendSkillStatus, setSendSkillStatus] = useState(false)
+    const requestSendRef = useRef(false)
 
     const onOpenHandler = () => {
         naviagte(`/skill/detail/${skill?._id}`)
@@ -19,7 +22,41 @@ const SingleSkill = ({ user, skill}) => {
     const onAddBookmarkHandler = (id) => {
         dispatch(AddBookmark({skillId: id}))
     }
+
+    useEffect(() => {
+        if(sendSkillStatus){
+            dispatch(GetAllSkills())
+        }
+    },[sendSkillStatus])
     
+  const skillsList = useSelector(state => state.home.skillsList)
+
+  const handleCloseModal = (event) => {
+    if (requestSendRef.current && !requestSendRef.current.contains(event.target)) {
+      setSendSkillStatus(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleCloseModal);
+    return () => {
+      document.removeEventListener('mousedown', handleCloseModal);
+    };
+  }, []);
+
+  const onSendRequestHandler = (swapingID, userId, skillId) => {
+    console.log(skillId);
+    const payload = {
+        userId,
+        skillId,
+        swapingID
+    }
+    console.log(payload);
+    dispatch(SendSkillRequest(payload))
+  }
+
+  console.log("user", user, skill);
+
   return (
     <div className='single-skill'>
         <BsFillBookmarkHeartFill id='book' onClick={() => onAddBookmarkHandler(skill?._id)}/>
@@ -52,7 +89,14 @@ const SingleSkill = ({ user, skill}) => {
             </div>
             <div className="row">
                 <span className="link" onClick={onOpenHandler}>Open</span>
-                <span className="link">Send Swap Request</span>
+                <span className="link">
+                    <span onClick={() => setSendSkillStatus(!sendSkillStatus)}>Send Swap Request</span>
+                    {sendSkillStatus && <div className="skill-send-list flex-column" ref={requestSendRef}>
+                        {
+                            skillsList?.skills?.map((sentSkillID, ind) => <span key={ind}>{sentSkillID?.skillName} <button className='small-btn' onClick={() => onSendRequestHandler(sentSkillID?._id, user?._id, skill?._id)}>swap</button></span>)
+                        }
+                    </div>}
+                </span>
             </div>
         </div>
     </div>

@@ -15,7 +15,7 @@ const Navbar = ({ onChange, toogle }) => {
     localStorage.clear()
   }
 
-  const [showNotification, setShowNotification] = useState(false)
+  const [showNotification, setShowNotification] = useState(true)
 
   return (
     <div className="navbar flex-between">
@@ -27,7 +27,9 @@ const Navbar = ({ onChange, toogle }) => {
       </div>
       <div className="link-group">
         Hi, {localStorage.getItem('user-name')?.split(' ')?.[0]}
-        <span  id='notification-icon' ><BsFillBellFill onMouseEnter={() => setShowNotification(true)} onMouseLeave={() => setShowNotification(false)} />
+        <span  id='notification-icon' ><BsFillBellFill onMouseEnter={() => setShowNotification(true)} 
+          // onMouseLeave={() => setShowNotification(false)} 
+          />
           <NotificationDropDown showNotification={showNotification} setShowNotification={setShowNotification}/>
         </span>          
         <Link to="/home">Home</Link>

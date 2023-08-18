@@ -3,7 +3,7 @@ import { all, fork, put, takeEvery } from 'redux-saga/effects';
 import * as Actions from '../types';
 import { NotificationHandler, SaveAPIResponse, SaveAllPaginateSkills, SaveAllSkills, SaveBookmarks, SaveNotifications, SaveProfile, SavePublicProfile, SaveSingleSkill } from '../Actions/Actions';
 
-const PROJECT_MODE = "production"
+const PROJECT_MODE = "development"
 // "https://skillswap.up.railway.app"
 // "https://skillswap-api.onrender.com"
 const API = PROJECT_MODE === "production" ? "https://skillswap.up.railway.app" : process.env.REACT_APP_ENDPOINT ;
@@ -290,6 +290,23 @@ function* addNewBookmark(data){
     }
 }
 
+function* skillSwapRequestSend(data){
+    const skillResData = yield axios.post(`${API}/user/swap-skill-request`, data.payload,  config())
+    .then((res) => {
+        const response = res.data
+        return response
+    })
+    .catch((err) => {
+        const errMsg = err.response.data;
+        NotificationHandler({status: true, message: errMsg?.message, type: 'danger'})
+        return errMsg
+    })
+    if(skillResData){    
+        console.log("skillResData", skillResData);       
+        yield put(NotificationHandler({status: true, message:skillResData?.message}))
+    }
+}
+
 export function* HomeWatcher() {
     yield takeEvery(Actions.LOGIN_USER, loginUserSaga);
     yield takeEvery(Actions.REGISTER_USER, registerUserSaga);
@@ -307,6 +324,7 @@ export function* HomeWatcher() {
     yield takeEvery(Actions.ADD_BOOKMARKS, addNewBookmark);
     yield takeEvery(Actions.UPLOAD_MEDIA, uploadUserMedia);
     yield takeEvery(Actions.REMOVE_BOOKMARKS, removeBookmark);
+    yield takeEvery(Actions.SEND_SKILL_REQUEST, skillSwapRequestSend);
 }
 
 export default function* rootSaga() {
