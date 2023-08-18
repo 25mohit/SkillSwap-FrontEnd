@@ -53,6 +53,20 @@
 .navbar .link-group #notification-icon{
         position: relative;
         z-index: 1;
+        cursor: pointer;
+}
+.new-notify{
+        background-color: red;
+        width: 15px;
+        height: 15px;
+        position: absolute;
+        top: -6px;
+        right: -6px;
+        border-radius: 50%;
+        color: white;
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 0.8rem;
+        box-shadow: 5px -3px 5px rgba(10,10,10,0.3);
 }
 .modal-drop{
         position: absolute;
@@ -110,7 +124,7 @@
         width: 100%;
         display: flex;
         align-items: start;
-        /* flex-direction: column; */
+        flex-direction: column;
         text-align: left;
 }
 .single-notification .content .h4-head {
@@ -125,6 +139,7 @@
         /* width: 100%; */
         text-align: left;
         white-space: nowrap;
+        margin-top: 0.4rem;
         font-size: 0.9rem;
         background-image: var(--primary-color);
         color: white;
@@ -133,6 +148,10 @@
 }  
 .single-notification .content p{
         font-size: 0.9rem;
+}
+.single-notification .content > footer{
+        display: flex;
+        gap: 0.4rem;
 }
 .form{
         display: flex;
@@ -862,6 +881,7 @@
         gap: 0.5rem;
         max-height: 10rem;
         overflow: auto;
+        z-index: 1;
 }
 .single-skill .row .link .skill-send-list > span{
         display: flex;

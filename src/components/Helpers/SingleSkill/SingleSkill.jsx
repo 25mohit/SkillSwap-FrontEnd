@@ -45,17 +45,14 @@ const SingleSkill = ({ user, skill}) => {
   }, []);
 
   const onSendRequestHandler = (swapingID, userId, skillId) => {
-    console.log(skillId);
     const payload = {
         userId,
         skillId,
         swapingID
     }
-    console.log(payload);
     dispatch(SendSkillRequest(payload))
   }
 
-  console.log("user", user, skill);
 
   return (
     <div className='single-skill'>

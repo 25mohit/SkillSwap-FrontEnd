@@ -5,7 +5,9 @@ import { FaRegUser } from 'react-icons/fa'
 import { GrLogout } from 'react-icons/gr'
 import { CiMenuKebab } from 'react-icons/ci'
 import NotificationDropDown from '../Notification/NotificationDropDown'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { GetNotifications } from '../../../Redux/Actions/Actions'
 
 const Navbar = ({ onChange, toogle }) => {
   const isLoggedIn = Boolean(localStorage.getItem('loggedIn'))
@@ -15,8 +17,20 @@ const Navbar = ({ onChange, toogle }) => {
     localStorage.clear()
   }
 
-  const [showNotification, setShowNotification] = useState(true)
+  const [showNotification, setShowNotification] = useState(false)
 
+  const dispatch = useDispatch()
+
+  const notifications = useSelector(state => state.home.notifications)
+
+  useEffect(() => {
+    if(showNotification && Object.keys(notifications)?.length == 0){
+      dispatch(GetNotifications())
+    }
+  },[showNotification])
+
+
+  console.log("notifications", notifications);
   return (
     <div className="navbar flex-between">
       <div className="flex-row">
@@ -27,10 +41,9 @@ const Navbar = ({ onChange, toogle }) => {
       </div>
       <div className="link-group">
         Hi, {localStorage.getItem('user-name')?.split(' ')?.[0]}
-        <span  id='notification-icon' ><BsFillBellFill onMouseEnter={() => setShowNotification(true)} 
-          // onMouseLeave={() => setShowNotification(false)} 
-          />
-          <NotificationDropDown showNotification={showNotification} setShowNotification={setShowNotification}/>
+        <span  id='notification-icon' ><BsFillBellFill onMouseEnter={() => setShowNotification(true)} onMouseLeave={() => setShowNotification(false)} />
+          {notifications?.length > 0 && <div className="new-notify">{notifications?.length}</div>}
+          <NotificationDropDown notifications={notifications} showNotification={showNotification} setShowNotification={setShowNotification}/>
         </span>          
         <Link to="/home">Home</Link>
         <Link to="/profile/user">Profile</Link>
