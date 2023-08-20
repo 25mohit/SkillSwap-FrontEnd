@@ -90,7 +90,8 @@ const SingleSkill = ({ user, skill}) => {
                     <span onClick={() => setSendSkillStatus(!sendSkillStatus)}>Send Swap Request</span>
                     {sendSkillStatus && <div className="skill-send-list flex-column" ref={requestSendRef}>
                         {
-                            skillsList?.skills?.map((sentSkillID, ind) => <span key={ind}>{sentSkillID?.skillName} <button className='small-btn' onClick={() => onSendRequestHandler(sentSkillID?._id, user?._id, skill?._id)}>swap</button></span>)
+                            skillsList?.skills?.length > 0 ? skillsList?.skills?.map((sentSkillID, ind) => <span key={ind}>{sentSkillID?.skillName} <button className='small-btn' onClick={() => onSendRequestHandler(sentSkillID?._id, user?._id, skill?._id)}>swap</button></span>)
+                           : <p>You didn't have any Skill to Swap</p>
                         }
                     </div>}
                 </span>

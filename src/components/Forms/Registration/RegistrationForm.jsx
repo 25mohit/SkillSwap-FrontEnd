@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import Input from '../../../Utils/Component/Form/Input'
 import { Link } from 'react-router-dom'
 import Form from '../../Layouts/Form/Form'
-import Select from '../../../Utils/Component/Form/Select'
 import { useDispatch } from 'react-redux'
 import { RegisterUser } from '../../../Redux/Actions/Actions'
 
