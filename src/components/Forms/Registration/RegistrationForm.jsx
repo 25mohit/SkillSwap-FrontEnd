@@ -125,7 +125,7 @@ const RegistrationForm = () => {
 
           </div>
         </div>
-        <Input error={errors?.mobile} onInput={() => setErrors({...errors, mobile: false})} value={userForm?.mobile} onChange={onChangeHandler} type="number" placeholder="Mobile no" name="mobile"/>
+        <Input error={errors?.mobile} min={0} onInput={() => setErrors({...errors, mobile: false})} value={userForm?.mobile} onChange={onChangeHandler} type="number" placeholder="Mobile no" name="mobile"/>
         <button className="btn-primary" onClick={onRegisterHandler}>Register</button>
         <div className="footer flex-between">
           <Link to="/terms-and-conditions" target='_blank'>Terms & Conditions</Link >

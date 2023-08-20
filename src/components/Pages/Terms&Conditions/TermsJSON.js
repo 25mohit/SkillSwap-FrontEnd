@@ -130,6 +130,6 @@ export const TermsJSONData = [
     },
     {
         heading: "Contact Information",
-        content: `If you have any questions or concerns about these Terms & Conditions or the App's usage, please contact us at [Contact Email/Address].`
+        content: `If you have any questions or concerns about these Terms & Conditions or the App's usage, please contact us at mohitag.dev@gmail.com.`
     }
 ]

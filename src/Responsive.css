@@ -139,7 +139,7 @@
     .flex-row .div{
         width: 100%;
     }    
-    .flex-row .div.empty{
+    .empty{
         display: none;
     }
     .profile-update .container{

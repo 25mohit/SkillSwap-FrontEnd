@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import ProfileLayout from '../../Layouts/ProfileLayout/ProfileLayout'
 import CardLayout from '../../Layouts/CardLayout/CardLayout'
 import { useDispatch, useSelector } from 'react-redux'
@@ -6,7 +6,6 @@ import { GetNotifications } from '../../../Redux/Actions/Actions'
 import NotificationBar from './NotificationBar'
 
 const UserRequests = () => {
-
   document.title = "SkillSwap | Notifications"
   const dispatch = useDispatch()
   
