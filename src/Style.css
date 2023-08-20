@@ -1136,7 +1136,8 @@ color: rgb(74, 74, 74);
         padding-left: 4vw !important;
 }
 .center{
-        width: 40%;
+        width: 80%;
+        /* background-color: red; */
 }
 .flex-content{
         display: flex;
