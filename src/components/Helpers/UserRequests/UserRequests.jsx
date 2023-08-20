@@ -7,6 +7,7 @@ import NotificationBar from './NotificationBar'
 
 const UserRequests = () => {
 
+  document.title = "SkillSwap | Notifications"
   const dispatch = useDispatch()
   
   useEffect(() => {
