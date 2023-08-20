@@ -30,7 +30,7 @@ const HeroLayout = () => {
       if(scrollSection === 2) setScrollSection(1)
     }
   }
-  console.log("scrollSection", scrollSection);
+
   return (
     <div className='hero-layout'>
       <AiFillUpCircle id='scroll-btn2' onClick={() => scrollToTop(`section${scrollSection}`)}/>

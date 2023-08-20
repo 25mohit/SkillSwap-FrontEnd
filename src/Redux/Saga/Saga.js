@@ -302,7 +302,6 @@ function* skillSwapRequestSend(data){
         return errMsg
     })
     if(skillResData){    
-        console.log("skillResData", skillResData);       
         yield put(NotificationHandler({status: true, message:skillResData?.message}))
     }
 }
@@ -319,7 +318,6 @@ function* ManageSkillSwapReq(data){
         return errMsg
     })
     if(skillResData){    
-        console.log("skillResData", skillResData);    
         yield put(GetNotifications())   
         if(skillResData?.status){
             yield put(NotificationHandler({status: true, message:skillResData?.message}))
