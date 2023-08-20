@@ -401,7 +401,7 @@
         position: relative;
 }
 .card-layout-2 .image > img{
-        z-index: 101;
+        z-index: 1;
         width: 10rem;
         aspect-ratio: 1/1;
         object-fit: cover;
@@ -419,7 +419,7 @@
         box-shadow: 2px 2px 4px 1px rgba(80,80,80,0.4);
         font-size: 2.1rem;
         color: blueviolet;
-        z-index: 102;
+        z-index: 2;
         transition: 0.5s ease;
 }
 .card-layout-2 .image #username_icon:hover{
