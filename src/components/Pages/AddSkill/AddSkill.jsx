@@ -35,7 +35,7 @@ const AddSkill = () => {
     })
     const [priceTerm, setPriceTerm] = useState('')
     const [skillLevel, setSkillLevel] = useState('')
-    const [skillVisibility, setSkillVisibility] = useState('ṭ')
+    const [skillVisibility, setSkillVisibility] = useState('')
     const [isEdit, setIsEdit] = useState(false)
     const [isLoading, setIsLoading] = useState(false)
     const [showDeleteModal, setShowDeleteModal] = useState(false)
