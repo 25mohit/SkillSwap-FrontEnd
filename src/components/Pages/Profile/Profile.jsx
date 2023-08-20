@@ -5,12 +5,9 @@ import Main from '../../Layouts/Main/Main'
 import { Outlet, useNavigate } from 'react-router-dom'
 import {GiRamProfile} from 'react-icons/gi'
 import {ImBooks} from 'react-icons/im'
-import {BiSupport} from 'react-icons/bi'
 import {BsFillBookmarkStarFill} from 'react-icons/bs'
-import {LuSettings} from 'react-icons/lu'
-import {PiGitPullRequestLight} from 'react-icons/pi'
-import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
+import { AiFillNotification } from 'react-icons/ai'
 
 const Profile = () => {
   
@@ -26,9 +23,9 @@ const Profile = () => {
       icon: <ImBooks />
     },
     {
-      label: 'Requests',
-      link:'requests',
-      icon: <PiGitPullRequestLight />
+      label: 'Notification',
+      link:'notification',
+      icon: <AiFillNotification />
     },
     {
       label: 'Bookmarks',

@@ -29,8 +29,10 @@ const Navbar = ({ onChange, toogle }) => {
     }
   },[showNotification])
 
+  const pendingNotification = notifications && Object.keys(notifications).length > 0 && 
+    notifications?.filter(notification => notification.status === "pending")
+    .map(notification => notification.status)
 
-  console.log("notifications", notifications);
   return (
     <div className="navbar flex-between">
       <div className="flex-row">
@@ -42,7 +44,7 @@ const Navbar = ({ onChange, toogle }) => {
       <div className="link-group">
         Hi, {localStorage.getItem('user-name')?.split(' ')?.[0]}
         <span  id='notification-icon' ><BsFillBellFill onMouseEnter={() => setShowNotification(true)} onMouseLeave={() => setShowNotification(false)} />
-          {notifications?.length > 0 && <div className="new-notify">{notifications?.length}</div>}
+          {pendingNotification?.length > 0 && <div className="new-notify">{pendingNotification?.length}</div>}
           <NotificationDropDown notifications={notifications} showNotification={showNotification} setShowNotification={setShowNotification}/>
         </span>          
         <Link to="/home">Home</Link>

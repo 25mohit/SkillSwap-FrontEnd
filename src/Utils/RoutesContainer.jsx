@@ -27,7 +27,7 @@ const RoutesContainer = () => {
           <Route path="/profile" exact element={<Profile />} >
             <Route path="user" exact element={<UserProfile />} />
             <Route path="skills" exact element={<UserSkills />} />
-            <Route path="requests" exact element={<UserRequests />} />
+            <Route path="notification" exact element={<UserRequests />} />
             <Route path="bookmark" exact element={<UserBookmark />} />
           <Route path="skills/:actionMode" exact element={<AddSkill />} />
           </Route>

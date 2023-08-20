@@ -1,24 +1,30 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import ProfileLayout from '../../Layouts/ProfileLayout/ProfileLayout'
 import CardLayout from '../../Layouts/CardLayout/CardLayout'
-import Toogler from '../Toogler/Toogler'
+import { useDispatch, useSelector } from 'react-redux'
+import { GetNotifications } from '../../../Redux/Actions/Actions'
+import NotificationBar from './NotificationBar'
 
 const UserRequests = () => {
-  const [toogleOption, setToogleOption] = useState('sent')
 
-  const toogleOptions = [
-    {label:'Sent', value:"sent"},
-    {label:'Received', value:"received"}
-  ]
+  const dispatch = useDispatch()
+  
+  useEffect(() => {
+      dispatch(GetNotifications())
+  },[])
+
+  const notifications = useSelector(state => state.home.notifications)
 
   return (
     <ProfileLayout>
-      <div className="user-request">
-        <Toogler current={toogleOption} onChange={setToogleOption} options={toogleOptions}/>
         <CardLayout>
-          ad
+        <div className="user-request flex-column">
+          {
+            notifications && Object.keys(notifications).length > 0 && notifications?.map((notify, index) => <NotificationBar key={index} data={notify}/>)
+          }
+        </div>
+          
         </CardLayout>
-      </div>
     </ProfileLayout>
   )
 }
