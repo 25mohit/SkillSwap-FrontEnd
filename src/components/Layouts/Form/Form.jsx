@@ -1,6 +1,6 @@
 import { AiOutlineDoubleLeft } from "react-icons/ai"
 import { BsFillCaretLeftFill } from "react-icons/bs"
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 const Form = props => {
 
@@ -14,6 +14,7 @@ const Form = props => {
         <div className="nav">
           {props.onBack?.show ? <AiOutlineDoubleLeft id="back-icon" onClick={onBackHandler}/> : null }
             <h2>{props?.heading}</h2>
+            <Link to='/' className="form-hd-txt">Skill Swap</Link>
         </div>
         {props.children}
     </form>

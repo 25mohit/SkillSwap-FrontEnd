@@ -27,10 +27,12 @@ const NotificationBar = ({ data }) => {
             <div>
                 <span>{data?.message?.slice(0, data?.message?.length -1)} for your&nbsp;</span>
                 <h3>{data?.skillDetails?.skillName}</h3> &nbsp;
-                <span className="time-stamp-with-bg">skill listed {moment(data?.skillDetails?.createdAt).startOf('minutes').fromNow()}</span>
+                <span className="time-stamp-with-bg">{moment(data?.requestTime).startOf('minutes').fromNow()}</span>
+
             </div>
-            <p>{data?.skillDetails?.skillDescription}</p>
-            <span className="time-stamp-with-bg">{moment(data?.requestTime).startOf('minutes').fromNow()}</span>
+            <p>{data?.skillDetails?.skillDescription}</p>       
+                     <span className="time-stamp-with-bg">skill listed {moment(data?.skillDetails?.createdAt).startOf('minutes').fromNow()}</span>
+
             <p  style={{whiteSpace:'nowrap', display:'flex', flexWrap:'wrap'}}> By&nbsp;<b style={{whiteSpace:'nowrap'}}>{data?.senderName} </b>&nbsp; ({data?.senderEmail}) for their&nbsp;<b  style={{whiteSpace:'nowrap'}}>{data?.senderSkillNameReqForSwaping}</b>&nbsp;Skill</p>
             {data?.status === 'pending' ? <footer className="foot">
                 <button className="approve" onClick={!isLoading ? () => onClickHandler('approve', data?._id, data?.skillDetails?.id) : null}>Approve</button>

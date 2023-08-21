@@ -17,6 +17,11 @@ const UserRequests = () => {
 
   return (
     <ProfileLayout>
+        <div className="skill-control-header flex-between">
+          <div className='flex'>
+            <h2 className='heading-main'>Notifications</h2>
+          </div>
+        </div>
         <CardLayout>
         <div className="user-request flex-column">
           {
