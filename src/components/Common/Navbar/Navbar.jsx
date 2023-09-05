@@ -38,7 +38,7 @@ const Navbar = ({ onChange, toogle }) => {
       <div className="flex-row">
         {window.location.href?.split('/')?.[3] === 'profile' && <CiMenuKebab onClick={() => onChange(!toogle)} id='nav-icon'/>}
         <Link to='/'>
-          <h2 className="main-logo">SkillSwap</h2>
+          <h2 className="main-logo">SkillSwap</h2> &nbsp;<b>BETA</b>
         </Link>
       </div>
       <div className="link-group">
